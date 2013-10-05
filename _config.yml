@@ -1,5 +1,9 @@
-name: Your New Jekyll Site
+name: Hacker Bootshop
 markdown: redcarpet
 pygments: true
 
 baseurl: /hackerbootshop
+paginate: 100
+paginate_path: "shop/:num"
+show_drafts: true
+permalink: none
