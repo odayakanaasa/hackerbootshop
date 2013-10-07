@@ -1,9 +1,37 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
+
+{% if page.product != true %}
+	<p class="meta">{{ page.date | date_to_string }}</p>
+{% endif %}
 
 <div class="post">
-{{ content }}
+	{% if page.large_image %}
+	    <div class="col-lg-4">
+	    	<div class="alert alert-info">
+				<img src="{{page.large_image}}" class="img-circle" />
+			</div>
+		</div>
+	    <div class="col-lg-4">
+	    </div>
+	    <div class="col-lg-8">
+	    	<div class="purchase">
+				<h2>
+					{% if page.retail_price %}
+						<strong>Retail Price:</strong> <span class="text-primary">${{page.retail_price}}</span> 
+					{% endif %}
+					{% if page.sale_price %}
+						<strong>Sale Price:</strong> <span class="text-success">${{page.sale_price}}</span>
+					{% endif %}
+				</h2>
+				{% if page.buy_link %}
+					<a href="{{page.buy_link}}" class="btn btn-success btn-lg">Purchase</a>
+				{% endif %}
+			</div>
+			{{ content }}
+	    </div>
+	{% else %}
+		{{ content }}
+	{% endif %}
 </div>

@@ -4,6 +4,6 @@ pygments: true
 
 baseurl: /hackerbootshop
 paginate: 100
-paginate_path: "shop/:num"
+paginate_path: "page/:num"
 show_drafts: true
 permalink: none
