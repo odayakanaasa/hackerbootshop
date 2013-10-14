@@ -26,7 +26,7 @@ task :tags do
   site.tags.sort.each do |tag, posts|
 
     # Index
-    index += "<a class=\"list-group-item\" href=\"" + tag + ".html\">"
+    index += "<a class=\"list-group-item\" href=\"" + site.baseurl + "/tags/" +  tag + ".html\">"
     index += "<span class=\"badge\">" + posts.length.to_s + "</span>" + tag + "</a>\n"
 
     # YML Front Matter
@@ -39,7 +39,7 @@ task :tags do
     html += "<div class=\"list-group\">\n"
     posts.reverse.each_with_index do |post, i|
       post_data = post.to_liquid
-      html += "<a class=\"list-group-item\" href=\"" + post.url + "\">"
+      html += "<a class=\"list-group-item\" href=\"" + site.baseurl + post.url + "\">"
       html += "<span class=\"label label-success\">" + post_data['sale_price'] + "</span>&nbsp;" + post_data['title'] + "</a>\n"
     end
     html += "</div>\n\n"

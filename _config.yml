@@ -2,7 +2,10 @@ name: Hacker Bootshop
 markdown: redcarpet
 pygments: true
 
+#Github Deployment
 baseurl: /hackerbootshop
+#Local Deployment
+#baseurl: ""
 paginate: 100
 paginate_path: "page/:num"
 show_drafts: true

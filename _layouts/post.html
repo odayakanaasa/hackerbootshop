@@ -8,14 +8,14 @@ layout: default
 
 <div class="post">
 	{% if page.large_image %}
-	    <div class="col-lg-4">
-	    	<div class="alert alert-info">
-				<img src="{{page.large_image}}" class="img-circle" />
+	    <div class="col-sm-4">
+	    	<div class="alert alert-info" style="max-width:300px;">
+				<img src="{{page.large_image}}" class="img-circle img-responsive" />
 			</div>
 		</div>
-	    <div class="col-lg-4">
+	    <div class="col-sm-4">
 	    </div>
-	    <div class="col-lg-8">
+	    <div class="col-sm-8">
 	    	<div class="purchase">
 				<h2>
 					{% if page.retail_price %}

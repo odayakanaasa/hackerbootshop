@@ -27,7 +27,7 @@ task :categories do
     category_name = category.gsub('-',' ').gsub('/','-')
 
     # Index
-    index += "<a href=\"" + category_path + ".html\" class=\"list-group-item\">"
+    index += "<a href=\"" + site.baseurl + "/browse/" + category_path + ".html\" class=\"list-group-item\">"
     index += "<span class=\"badge\">" + posts.length.to_s + "</span>" + category_name + "</a>\n"
 
     # YML Front Matter
@@ -40,7 +40,7 @@ task :categories do
     html += "<div class=\"list-group\">\n"
     posts.reverse.each_with_index do |post, i|
       post_data = post.to_liquid
-      html += "<a class=\"list-group-item\" href=\"" + post.url + "\">"
+      html += "<a class=\"list-group-item\" href=\"" + site.baseurl + post.url + "\">"
       if (post_data['sale_price'] != nil) 
         html += "<span class=\"label label-success\">" + post_data['sale_price'] + "</span>&nbsp;"
       end
