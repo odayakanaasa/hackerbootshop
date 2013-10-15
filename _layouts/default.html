@@ -17,6 +17,20 @@
       <script src="{{ site.baseurl}}/bower_components/bootstrap/assets/js/html5shiv.js"></script>
       <script src="{{ site.baseurl}}/bower_components/bootstrap/assets/js/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+      (function() {
+        var cx = '012855538632709691363:pofs2mbwrow';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+
   </head>
 
   <body>
@@ -33,6 +47,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+            <li><a href="{{ site.baseurl}}/page/">Products</a></li>
+            <li><a href="{{ site.baseurl}}/browse/">Categories</a></li>
+            <li><a href="{{ site.baseurl}}/tags/">Tags</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -42,6 +59,11 @@
               </ul>
             </li>
           </ul>
+          <div class="navbar-right" style="width:300px;">
+            <div class="reset-box-sizing mt10">
+              <gcse:searchbox-only resultsUrl="{{site.baseurl}}/search.html" newWindow="false">
+            </div>
+          </div>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
