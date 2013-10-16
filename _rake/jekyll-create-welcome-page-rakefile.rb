@@ -30,16 +30,6 @@ task :welcome do
   index += "title: Welcome to Hacker Bootstrap Shop\n";
   index += "---\n\n";
 
-
-  # Womens Posts
-  index += "<h2>Women's:</h2>"
-  index += "<div class=\"row\">\n\n"
-  site.categories['womens'].shuffle.first(8).each do |post|
-    post_data = post.to_liquid
-    index += thumbnail(site.baseurl, post_data["url"], post_data["large_image"], post_data["title"])
-  end
-  index += "</div>\n\n"
-
   # Skiiing Posts
   index += "<h2>Ski:</h2>"
   index += "<div class=\"row\">\n\n"
@@ -62,15 +52,6 @@ task :welcome do
   index += "<h2>Commute:</h2>"
   index += "<div class=\"row\">\n\n"
   site.tags['commute'].shuffle.first(4).each do |post|
-    post_data = post.to_liquid
-    index += thumbnail(site.baseurl, post_data["url"], post_data["large_image"], post_data["title"])
-  end
-  index += "</div>\n\n"
-
-  # Mens Posts
-  index += "<h2>Men's:</h2>"
-  index += "<div class=\"row\">\n\n"
-  site.categories['mens'].shuffle.first(8).each do |post|
     post_data = post.to_liquid
     index += thumbnail(site.baseurl, post_data["url"], post_data["large_image"], post_data["title"])
   end

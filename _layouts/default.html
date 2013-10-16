@@ -1,95 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="{{ site.baseurl}}/bower_components/bootstrap/assets/ico/favicon.png">
-
-    <title>{{ site.name }} | {{ page.title }}</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ site.baseurl}}/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="{{ site.baseurl}}/bower_components/bootstrap/assets/js/html5shiv.js"></script>
-      <script src="{{ site.baseurl}}/bower_components/bootstrap/assets/js/respond.min.js"></script>
-    <![endif]-->
-
-    <script>
-      (function() {
-        var cx = '012855538632709691363:pofs2mbwrow';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-            '//www.google.com/cse/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-      })();
-    </script>
-
+    {% include head.html %}
   </head>
 
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{ site.baseurl}}/">{{ site.name }}</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{{ site.baseurl}}/page/">Products</a></li>
-            <li><a href="{{ site.baseurl}}/browse/">Categories</a></li>
-            <li><a href="{{ site.baseurl}}/tags/">Tags</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{ site.baseurl}}/page/">Products</a></li>
-                <li><a href="{{ site.baseurl}}/browse/">Categories</a></li>
-                <li><a href="{{ site.baseurl}}/tags/">Tags</a></li>
-              </ul>
-            </li>
-          </ul>
-          <div class="navbar-right" style="width:300px;">
-            <div class="reset-box-sizing mt10">
-              <gcse:searchbox-only resultsUrl="{{site.baseurl}}/search.html" newWindow="false">
-            </div>
-          </div>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
+  {% include top_nav.html %}
 
     <div class="container">
-
+      <h2>      
+        {% for breadcrumb in page.breadcrumb %}
+            <a href="{{site.baseurl}}{{ breadcrumb['url'] }}">{{ breadcrumb['title'] }}</a> &rarr; 
+        {% endfor %}
+        {{ page.title }}
+      </h2>
       <div class="row">
         <div class="col-sm-12">
-          <h1>{{ page.title }}</h1>
           {{ content }}
         </div>
       </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+      {% include footer.html %}
     </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ site.baseurl}}/bower_components/bootstrap/assets/js/jquery.js"></script>
-    <script src="{{ site.baseurl}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    {% include javascript.html %}
   </body>
 </html>
 

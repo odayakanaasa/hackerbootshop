@@ -46,7 +46,7 @@ task :tags do
     
     # Page
     File.open("tags/#{tag}.html", 'w+') do |file|
-      file.puts html
+      #file.puts html
     end
 
   end
@@ -54,7 +54,7 @@ task :tags do
 
   # Index Page
   File.open("tags/index.html", 'w+') do |file|
-    file.puts index
+    #file.puts index
   end
 
   puts 'Done.'
