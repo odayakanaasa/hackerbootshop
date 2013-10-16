@@ -7,4 +7,3 @@ import '_rake/jekyll-create-welcome-page-rakefile.rb'
 import '_rake/jekyll-create-category-landing-pages-rakefile.rb'
 
 task :default => [:category_landing, :running, :welcome]
-
