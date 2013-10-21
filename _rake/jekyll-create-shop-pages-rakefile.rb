@@ -6,6 +6,7 @@ task :products do
   require 'rubygems'
   require 'cgi'
   require 'rexml/document'
+  require_relative 'helpers.rb'
   include REXML
 
   # XML Data
@@ -49,6 +50,10 @@ task :products do
     yml += "category_path: \"" + category + "\"\n"
     yml += "sub_category_path: \"" + category + "/" + sub_category + "\"\n"
     yml += "product_group_path: \"" + category + "/" + sub_category + "/" + product_group + "\"\n"
+
+    yml += "breadcrumb: \n"
+    yml += " - {title: \""+ product.elements['Category'].text + "\", url: /browse/" + build_category_path(category).downcase + "/}\n"
+    yml += " - {title: \""+ product.elements['SubCategory'].text + "\", url: /browse/" + build_category_path(category).downcase + "/" + build_category_path(sub_category).downcase + "/}\n"
 
     if (product.elements['Keywords'].text != nil) 
       yml += "tags:\n"

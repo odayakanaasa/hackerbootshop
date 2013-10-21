@@ -8,12 +8,12 @@
   {% include top_nav.html %}
 
     <div class="container">
-      <h2>      
+      <h3>      
         {% for breadcrumb in page.breadcrumb %}
             <a href="{{site.baseurl}}{{ breadcrumb['url'] }}">{{ breadcrumb['title'] }}</a> &rarr; 
         {% endfor %}
         {{ page.title }}
-      </h2>
+      </h3>
       <div class="row">
         <div class="col-sm-12">
           {{ content }}

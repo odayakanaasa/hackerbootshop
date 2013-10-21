@@ -2,14 +2,13 @@ desc 'Generate category landing pages'
 
 task :category_landing do
 
-
-
   puts "Generating category landing pages..."
   require 'rubygems'
   require 'jekyll'
   require 'fileutils'
   require 'pp'
   require 'yaml'
+  require_relative 'helpers.rb'
   include Jekyll::Filters
   
   options = Jekyll.configuration({})

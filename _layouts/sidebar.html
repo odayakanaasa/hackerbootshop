@@ -16,11 +16,13 @@
       </h2>
       <div class="row">
         <div class="col-md-3">
+          <div class="list-group">
           {% for links in page.secondary_nav %}
             {% for link in links %}
-              <a href="{{site.baseurl}}{{ link[0] }}">{{ link[1] }}</a><br/>
+              <a class="list-group-item" href="{{site.baseurl}}{{ link[0] }}">{{ link[1] }}</a>
             {% endfor %}
           {% endfor %}
+          </div>
         </div>
         <div class="col-md-9">
           {{ content }}

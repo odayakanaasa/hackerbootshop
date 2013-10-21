@@ -6945,3 +6945,8 @@ td.visible-print {
 .pb30 {
   padding-bottom: 30px;
 }
+
+.fb-comments,
+.fb-comments * {
+  width: 100% !important;
+}
