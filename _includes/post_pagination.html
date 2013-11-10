@@ -1,25 +1,30 @@
 
-<ul class="pagination">
+<ul class="pagination" style="margin-top:0;padding-top:0;">
+
 	{% if paginator.previous_page %}
-		<li><a href="{{ paginator.previous_page_path }}">&laquo;</a></li>
+		<li><a href="{{site.baseurl}}/{{ paginator.previous_page_path }}">&laquo;&nbsp;previous</a></li>
 	{% else %}
-		<li class="disabled"><a href="#">&laquo;</a></li>
+		<li class="disabled"><a href="#">&laquo;&nbsp;previous</a></li>
 	{% endif %}
+
 	{% if paginator.page == 1 %}
-		<li class="active"><span>1</span></li>
-	{% else %}
-		<li><a href="/page/">1</a></li>
+    	<li class="disabled"><span>1</span></li>
+    {% else %}
+		<li><a href="{{site.baseurl}}/">1</a></li>
 	{% endif %}
-	{% for count in (2..paginator.total_pages) %}
-	    {% if count == paginator.page %}
-	    	<li class="active"><span>{{ count }}</span></li>
-	    {% else %}
-	    	<li><a href="/page/{{ count }}">{{ count }}</a></li>
-	    {% endif %}
-	{% endfor %}
+
+	<li class="active"><span>{{paginator.page}}&nbsp;of&nbsp;{{paginator.total_pages}}</span></li>
+
+	{% if paginator.page == paginator.total_pages %}
+    	<li class="disabled"><span>{{ paginator.page }}</span></li>
+    {% else %}
+		<li><a href="{{site.baseurl}}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
+	{% endif %}
+
 	{% if paginator.next_page %}
-		<li><a href="{{ paginator.next_page_path }}">&raquo;</a></li>
+		<li><a href="{{site.baseurl}}/{{ paginator.next_page_path }}">next&nbsp;&raquo;</a></li>
 	{% else %}
-		<li class="disabled"><a href="#">&raquo;</a></li>
+		<li class="disabled"><a href="#">next&nbsp;&raquo;</a></li>
 	{% endif %}
+
 </ul>

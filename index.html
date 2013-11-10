@@ -1,125 +1,15 @@
 ---
-layout: default
-title: Welcome to Hacker Bootstrap Shop
+layout: browse
+title: Browse Products
 ---
 
-<h2>Ski:</h2><div class="row">
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/kids/rainwear-and-outerwear-infants-and-toddlers/infants-and-toddlers-insulated-parkas-and-pants/818609.html"><img src="http://i1.avlws.com/115/l216219.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Out Of Bounds Insulated Jacket - Toddler Boys&#39;</h4>
+<div id="home">
+	<div class="list-group">
+		{% for post in paginator.posts %}
+		  <a class="list-group-item" href="{{ site.baseurl}}{{ post.url }}">
+		      {% if post.sale_price %}<span class="label label-success">${{ post.sale_price }}</span>&nbsp;{% endif %}
+		      {{ post.title }}
+		  </a>
+	    {% endfor %}
+  	</div>
 </div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/skiing-and-snowboarding/mens-ski-and-snowboard-clothing/mens-ski-and-snowboard-jackets/853796.html"><img src="http://i1.avlws.com/115/l319179.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Ballard Insulated Jacket - Men&#39;s - 2012 Closeout</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/camping-hiking/specialized-packs/ski-and-snowboard-packs/836611.html"><img src="http://i1.avlws.com/115/l268315.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Patrol 24 ABS Avalanche Airbag Pack</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/skiing-and-snowboarding/mens-ski-and-snowboard-clothing/mens-ski-and-snowboard-jackets/853808.html"><img src="http://i1.avlws.com/115/l319187.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Gatebreak Down Jacket - Men&#39;s - 2012 Closeout</h4>
-</div>
-</div>
-</div>
-
-</div>
-
-<h2>Run:</h2><div class="row">
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/mens-clothing/activewear/mens-workout-jackets-and-vests/863461.html"><img src="http://i1.avlws.com/115/l320831.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Darkwind Shell Jacket - Men&#39;s - 2013 Closeout</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/mens/mens-shorts/mens-running-shorts/827928.html"><img src="http://i1.avlws.com/115/l215719.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Agility Shorts - Men&#39;s</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/mens/mens-gloves-and-mittens/mens-soft-shell-gloves/837995.html"><img src="http://i1.avlws.com/115/l275107.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Etip Apex Gloves - Men&#39;s</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/mens-clothing/activewear/mens-workout-jackets-and-vests/863453.html"><img src="http://i1.avlws.com/115/l320827.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Momentum Jacket - Men&#39;s - 2013 Closeout</h4>
-</div>
-</div>
-</div>
-
-</div>
-
-<h2>Commute:</h2><div class="row">
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/luggage-travel/day-bags-and-packs/travel-daypacks/833669.html"><img src="http://i1.avlws.com/115/l305519.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Base Camp Hot Shot Daypack</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/luggage-travel/day-bags-and-packs/travel-daypacks/845775.html"><img src="http://i1.avlws.com/115/l306515.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Big Shot II Daypack</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/luggage-travel/day-bags-and-packs/travel-daypacks/833672.html"><img src="http://i1.avlws.com/115/l305527.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Jester Daypack</h4>
-</div>
-</div>
-</div>
-
-<div class="col-sm-6 col-md-3">
-<div class="thumbnail alert alert-info" style="margin-bottom:30px;max-width:300px">
-<a href="/hackerbootshop/luggage-travel/day-bags-and-packs/travel-daypacks/845776.html"><img src="http://i1.avlws.com/115/l306519.png" class="img-circle img-responsive" /></a>
-<div class="caption" style="min-height:124px;">
-<h4>The North Face Hot Shot Daypack</h4>
-</div>
-</div>
-</div>
-
-</div>
-

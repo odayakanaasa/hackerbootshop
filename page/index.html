@@ -1,17 +1,1 @@
----
-layout: default
-title: Products
----
 
-<div id="home">
-	{% include post_pagination.html %}
-	<div class="list-group">
-		{% for post in paginator.posts %}
-		  <a class="list-group-item" href="{{ site.baseurl}}{{ post.url }}">
-		      {% if post.sale_price %}<span class="label label-success">${{ post.sale_price }}</span>&nbsp;{% endif %}
-		      {{ post.title }}
-		  </a>
-	    {% endfor %}
-  	</div>
-	{% include post_pagination.html %}
-</div>

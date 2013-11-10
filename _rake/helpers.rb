@@ -10,10 +10,14 @@ end
 
 def build_category_path (path)
     category = path.gsub(' ','-').gsub('\'','').gsub('-/-','/').gsub(',','').gsub('----','-')
-    category_path = category.gsub('-','/')
+    category_path = category.gsub('-','/').gsub('///','/')
 end
 
 def build_category_name (path)
-	category = path.gsub(' ','-').gsub('\'','').gsub('-/-','/').gsub(',','').gsub('----','-')
-    category_name = category.gsub('-',' ').gsub('/','-')
+	category = path.gsub(' ','-').gsub('\'','').gsub('-/-','/').gsub(',','').gsub('----','-').gsub('///','/')
+  category_name = category.gsub('-',' ').gsub('/','-')
+end
+
+def time_rand from = 0.0, to = Time.now
+  Time.at(from + rand * (to.to_f - from.to_f))
 end

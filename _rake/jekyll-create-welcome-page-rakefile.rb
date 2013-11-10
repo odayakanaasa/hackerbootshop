@@ -4,9 +4,9 @@ def thumbnail (baseurl, pageurl, image, title)
     index = "<div class=\"col-sm-6 col-md-3\">\n";
       index += "<div class=\"thumbnail alert alert-info\" style=\"margin-bottom:30px;max-width:300px\">\n";
         index += "<a href=\"" + baseurl + pageurl + "\">";
-        index += "<img src=\"" + image + "\" class=\"img-circle img-responsive\" />";
+        index += "<img src=\"" + image + "\" class=\"img-responsive\" />";
         index += "</a>\n"
-        index += "<div class=\"caption\" style=\"min-height:124px;\">\n"
+        index += "<div class=\"caption\" style=\"height:124px;overflow:hidden;\">\n"
           index += "<h4>" + title + "</h4>\n";
         index += "</div>\n";
       index += "</div>\n";
@@ -58,7 +58,7 @@ task :welcome do
   index += "</div>\n\n"
 
   # Index Page
-  File.open("index.html", 'w+') do |file|
+  File.open("welcome.html", 'w+') do |file|
     file.puts index
   end
 
