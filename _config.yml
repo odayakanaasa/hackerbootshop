@@ -8,5 +8,5 @@ baseurl: /hackerbootshop
 #baseurl: ""
 paginate: 100
 paginate_path: "page/:num"
-show_drafts: true
+show_drafts: false
 permalink: none
