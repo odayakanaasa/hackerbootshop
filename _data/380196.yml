@@ -1,0 +1,31 @@
+---
+sku: '380196'
+manufacturer_id: '2883'
+brand_name: Rei
+product_name: REI Cotton Storage Bag - 32 x 16.5
+long_description: Lengthen the life of your sleeping bag by storing it uncompressed
+  in this large 100% cotton bag. Drawcord closure. Large REI logo on 3 sides.
+short_description: Lengthen the life of your sleeping bag by storing it uncompressed
+  in this large 100% cotton bag.
+category: Camping & Hiking
+subcategory: Stuff Sacks
+product_group: Storage Sacks
+thumb_url: http://i1.avlws.com/115/s134799.png
+image_url: http://i1.avlws.com/115/l134799.png
+buy_link: http://www.avantlink.com/click.php?p=81603&pw=55475&pt=3&pri=134799&tt=df
+keywords: laundry bag,sleepingbagbag,sleepingbag storage sack
+retail_price: '14.50'
+sale_price: '14.50'
+product_page_view_tracking: ! '<img src="http://www.avantlink.com/dfpv.php?p=81603&amp;pri=134799"
+  width="0" height="0" style="border: none !important; margin: 0px !important;" alt=""
+  />'
+medium_image_url: http://i1.avlws.com/115/m134799.png
+product_content_widget: <script type="text/javascript" src="http://www.avantlink.com/apcw.php?mode=5&amp;pw=55475&amp;df=115&amp;sku=380196&amp;link=&amp;tabs=-Details"></script>
+variants:
+  '3801960026':
+    sku: '3801960026'
+    vendor_sku: '2883'
+    upc: '438019600261'
+    color: NATURAL
+    retail_price: '14.50'
+    sale_price: '14.50'

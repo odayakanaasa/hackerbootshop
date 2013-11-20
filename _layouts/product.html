@@ -1,0 +1,153 @@
+---
+layout: default
+---
+
+{% if site.data.products[page.sku] %}
+	{% assign product = site.data.products[page.sku] %}
+	<div class="post row">
+	    <div class="col-sm-4">
+	    	<div style="max-width:300px;">
+				<img src="{{product.image_url}}" class="img-responsive" />
+			</div>
+		</div>
+	    <div class="col-sm-8">
+	    	<h2>{{ page.title }}</h2>
+	    	<div class="purchase alert alert-info">
+	    		<div class="table-responsive">
+					<table class="price table table-hover table-bordered">
+						<tr>
+							<th>retail</th><th>sale</th><th>save</th><th>discount</th>
+						</tr>
+						<tr>
+							<td>
+								{% if page.list_price %}
+									${{page.list_price}}
+								{% endif %}
+							</td>
+							<td>
+								{% if page.sale_price %}
+									${{page.sale_price}}
+								{% endif %}
+							</td>
+							<td>
+								{% if page.you_save %}
+									${{page.you_save}}
+								{% endif %}
+							</td>
+							<td>
+								{% if page.discount %}
+									{{page.discount}}%
+								{% endif %}
+							</td>
+						</tr>
+					</table>
+				</div>
+				{% if product.buy_link %}
+					<a href="{{product.buy_link}}" class="btn btn-success btn-lg">
+						<span class="glyphicon glyphicon-tree-conifer"></span>
+						Buy now
+					</a>
+				{% endif %}
+			</div>
+
+			{% if page.description_list %}
+				{{ page.description_list }}
+			{% elsif product.short_description %}
+				<p class="description">{{ product.short_description }}</p>
+			{% endif %}
+
+			{% if product.variants.size > 1 %}
+				<h3>Variants</h3>
+				<div class="table-responsive">
+					<table class="variants table table-striped table-hover">
+					<tr>
+						<th>size</th><th>color</th><th>&nbsp;</th>
+					</tr>
+					{% for variant in product.variants %}
+						<tr>
+							<td>
+								{% if variant[1].size %}
+									{{ variant[1].size }}
+								{% endif %}
+							</td>
+							<td>
+								{% if variant[1].color %}
+									{{ variant[1].color }}
+								{% endif %}
+							</td>
+							<td>
+								{% if product.buy_link %}
+									<a href="{{product.buy_link}}" class="btn btn-success btn-xs">
+										<span class="glyphicon glyphicon-tree-conifer"></span>
+										Buy now
+									</a>
+								{% endif %}
+							</td>
+						</tr>
+					{% endfor %}
+					</table>
+				</div>
+			{% endif %}
+
+			{% if site.related_posts %}
+				<h3>Related Posts</h3>
+				<ul class="related_posts">
+				{% for post in site.related_posts %}
+					<li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if page.categories %}
+				<h3>Categories</h3>
+				<ul class="categories">
+				{% for category in page.categories %}
+					<li>{{ category }} (TODO)</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if page.tags %}
+				<h3>Tags</h3>
+				<ul class="tags">
+				{% for tag in page.tags %}
+					<li>{{ tag }} (TODO)</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if product.product_page_view_tracking %}
+				<span class="sellout">{{product_page_view_tracking}}</span>
+			{% endif %}
+	    </div>
+	</div>
+{% endif %}
+
+<div class="row">
+	<div class="col-sm-4">
+		&nbsp;
+	</div>
+	<div class="col-sm-8">
+		{{ content }}
+		<h3>Product Reviews</h3>
+		<div class="fb-comments" data-href="http://joecode.com{{site.baseurl}}{{page.url}}" data-colorscheme="light" data-numposts="10"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		{% if page.previous %}
+			&larr;&nbsp;<a href="{{site.baseurl}}{{page.previous.url}}">{{page.previous.title}}</a>
+		{% else %}
+			&nbsp;
+		{% endif %}
+	</div>
+	<div class="col-sm-6" style="text-align:right;">
+		{% if page.next %}
+			<a href="{{site.baseurl}}{{page.next.url}}">{{page.next.title}}</a>&nbsp;&rarr;
+		{% else %}
+			&nbsp;
+		{% endif %}
+	</div>
+</div>
+

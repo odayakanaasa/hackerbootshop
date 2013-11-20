@@ -2,45 +2,10 @@
 layout: default
 ---
 
-{% if page.product != true %}
-	<p class="meta">{{ page.date | date_to_string }}</p>
-{% endif %}
+<h2>{{ page.title }}</h2>
+<p class="meta">{{ page.date | date_to_string }}</p>
 
 <div class="post row">
-	{% if page.large_image %}
-	    <div class="col-sm-4">
-	    	<div class="alert alert-info" style="max-width:300px;">
-				<img src="{{page.large_image}}" class="img-responsive" />
-			</div>
-		</div>
-	    <div class="col-sm-4">
-	    </div>
-	    <div class="col-sm-8">
-	    	<div class="purchase">
-				<h2>
-					{% if page.retail_price %}
-						<strong>Retail Price:</strong> <span class="text-primary">${{page.retail_price}}</span> 
-					{% endif %}
-					{% if page.sale_price %}
-						<strong>Sale Price:</strong> <span class="text-success">${{page.sale_price}}</span>
-					{% endif %}
-				</h2>
-				{% if page.buy_link %}
-					<a href="{{page.buy_link}}" class="btn btn-success btn-lg">Purchase</a>
-				{% endif %}
-			</div>
-			{{ content }}
-	    </div>
-	{% else %}
-		{{ content }}
-	{% endif %}
+	{{ content }}
 </div>
 
-<div class="row">
-	<div class="col-sm-4">
-		&nbsp;
-	</div>
-	<div class="col-sm-8">
-		<div class="fb-comments" data-href="http://joecode.com{{site.baseurl}}{{page.url}}" data-colorscheme="light" data-numposts="10"></div>
-	</div>
-</div>

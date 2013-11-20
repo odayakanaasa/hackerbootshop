@@ -1,3 +1,59 @@
+def build_product_front_matter (product)
+  post = Hash.new
+  post['layout'] = 'product'
+  post['title'] = product['product_name']
+  post['sku'] = product['sku']
+  post['categories'] = Array.new
+  post['categories'].push(seo_string(product['category']))
+  post['categories'].push(seo_string(product['subcategory']))
+  post['categories'].push(seo_string(product['product_group']))
+  if (product['long_description']) 
+    post['description_list'] = build_description_list(product['long_description'])
+  end
+  if (product['keywords'] != nil) 
+    post['tags'] = Array.new
+    tags = product['keywords'].split(",")
+    tags.each do |tag|
+      post['tags'].push(seo_string(tag))
+    end
+  end
+  if (product['retail_price'] == product['sale_price'])
+    discount = ( (1+Random.rand(9).to_f) / 100 )
+    you_save = product['retail_price'].to_f * discount
+    you_save = you_save
+    post['list_price'] = sprintf('%.2f', product['retail_price'].to_f + you_save.to_f)
+    post['sale_price'] = sprintf('%.2f', product['sale_price'].to_f)
+    post['you_save'] = sprintf('%.2f', you_save)
+    post['discount'] = (discount*100).to_i
+  end
+  if (product['retail_price'].to_f > product['sale_price'].to_f)
+    you_save = product['retail_price'].to_f - product['sale_price'].to_f
+    post['list_price'] = sprintf('%.2f', product['retail_price'])
+    post['sale_price'] = sprintf('%.2f', product['sale_price'])
+    post['you_save'] = sprintf('%.2f', you_save)
+    #post['discount'] = 00.00 #TODO
+  end
+  return post.to_yaml
+end
+
+def build_description_list (description)
+    # Description
+    description = description.gsub('fl.','fl').gsub('oz.','oz')
+    @description = description.split('.')
+    # Header & List
+    description_header = ''
+    description_list = '<ul class="description">'
+    @description.each_with_index do |item, index|
+      if (index == 0)
+        description_header += "<h3>"+item+"</h3>"
+      else
+        description_list += "<li>"+item+"</li>"
+      end
+    end
+    description_list += "</ul>"
+    return description_header + description_list
+end
+
 def build_post_link (post, baseurl) 
       post_data = post.to_liquid
       #pp post_data
@@ -21,3 +77,9 @@ end
 def time_rand from = 0.0, to = Time.now
   Time.at(from + rand * (to.to_f - from.to_f))
 end
+
+def seo_string (name)
+  clean_name = name.gsub('/','-').gsub(' ','-').gsub('\'','').gsub('&-','').gsub(',','').gsub('(','').gsub(')','').gsub('----','-').gsub('---','-').gsub('--','-').gsub(':','')
+  clean_name = clean_name.downcase
+end
+
