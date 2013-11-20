@@ -18,11 +18,14 @@ task :welcome do
   puts "Generating Welcome Landing Page..."
   require 'rubygems'
   require 'jekyll'
+  require 'yaml'
   include Jekyll::Filters
   
   options = Jekyll.configuration({})
   site = Jekyll::Site.new(options)
   site.read_posts('')
+
+  products = YAML.load_file('_data/products.yml')
 
   # Index YML Front Matter  
   index = "---\n";
@@ -30,30 +33,30 @@ task :welcome do
   index += "title: Welcome to Hacker Bootstrap Shop\n";
   index += "---\n\n";
 
-  # Skiiing Posts
-  index += "<h2>Ski:</h2>"
+  index += "<h2>Mess:</h2>"
   index += "<div class=\"row\">\n\n"
-  site.tags['ski'].shuffle.first(4).each do |post|
+  site.tags['mess'].shuffle.first(4).each do |post|
     post_data = post.to_liquid
-    index += thumbnail(site.baseurl, post_data["url"], post_data["large_image"], post_data["title"])
+    pid = post_data['sku']
+    index += thumbnail(site.baseurl, post_data["url"], products[pid]['image_url'], post_data["title"])
   end
   index += "</div>\n\n"
 
-  # Running Posts
-  index += "<h2>Run:</h2>"
+  index += "<h2>Coffee:</h2>"
   index += "<div class=\"row\">\n\n"
-  site.tags['running'].shuffle.first(4).each do |post|
+  site.tags['coffee'].shuffle.first(4).each do |post|
     post_data = post.to_liquid
-    index += thumbnail(site.baseurl, post_data["url"], post_data["large_image"], post_data["title"])
+    pid = post_data['sku']
+    index += thumbnail(site.baseurl, post_data["url"], products[pid]['image_url'], post_data["title"])
   end
   index += "</div>\n\n"
 
-  # Commute Posts
-  index += "<h2>Commute:</h2>"
+  index += "<h2>Yoga Pants:</h2>"
   index += "<div class=\"row\">\n\n"
-  site.tags['commute'].shuffle.first(4).each do |post|
+  site.tags['yoga-pants'].shuffle.first(4).each do |post|
     post_data = post.to_liquid
-    index += thumbnail(site.baseurl, post_data["url"], post_data["large_image"], post_data["title"])
+    pid = post_data['sku']
+    index += thumbnail(site.baseurl, post_data["url"], products[pid]['image_url'], post_data["title"])
   end
   index += "</div>\n\n"
 

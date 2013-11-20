@@ -26,7 +26,7 @@ task :tags do
   site.tags.sort.each do |tag, posts|
 
     # Index
-    index += "<a class=\"list-group-item\" href=\"" + site.baseurl + "/tags/" +  tag + ".html\">"
+    index += "<a class=\"list-group-item\" href=\"" + site.baseurl + "/tags/" +  tag + "/index.html\">"
     index += "<span class=\"badge\">" + posts.length.to_s + "</span>" + tag + "</a>\n"
 
     # YML Front Matter
@@ -45,8 +45,10 @@ task :tags do
     html += "</div>\n\n"
     
     # Page
-    File.open("tags/#{tag}.html", 'w+') do |file|
-      #file.puts html
+    file = 'tags/' + tag + '/index.html'
+    FileUtils.mkdir_p(File.dirname(file)) unless File.exists?(File.dirname(file))
+    File.open(file, 'w+') do |file|
+      file.puts html
     end
 
   end
@@ -54,7 +56,7 @@ task :tags do
 
   # Index Page
   File.open("tags/index.html", 'w+') do |file|
-    #file.puts index
+    file.puts index
   end
 
   puts 'Done.'

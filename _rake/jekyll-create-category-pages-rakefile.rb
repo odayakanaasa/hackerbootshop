@@ -23,12 +23,10 @@ task :categories do
   index += "<div class=\"list-group\">\n"
   site.categories.sort.each do |category, posts|
 
-    #category = category.gsub(' ','-').gsub('\'','').gsub('-/-','/').gsub(',','').gsub('----','-')
-    category_path = build_category_path(category) #category.gsub('-','/')
-    category_name = build_category_name(category) #category.gsub('-',' ').gsub('/','-')
+    category_name = titleize(category)
 
     # Index
-    index += "<a href=\"" + site.baseurl + "/browse/" + category_path + ".html\" class=\"list-group-item\">"
+    index += "<a href=\"" + site.baseurl + "/browse/" + category + "/index.html\" class=\"list-group-item\">"
     index += "<span class=\"badge\">" + posts.length.to_s + "</span>" + category_name + "</a>\n"
 
     # YML Front Matter
@@ -40,15 +38,15 @@ task :categories do
     # List of Posts
     html += "<div class=\"list-group\">\n"
     posts.reverse.each_with_index do |post, i|
-      build_post_link(post, site.baseurl)
+      html += build_post_link(post, site.baseurl)
     end
     html += "</div>\n\n"
     
     # Page
-    file = "browse/#{category_path}.html"
+    file = "browse/#{category}/index.html"
     FileUtils.mkdir_p(File.dirname(file)) unless File.exists?(File.dirname(file))
     File.open(file, 'w+') do |file|
-      #file.puts html
+      file.puts html
     end
 
   end
@@ -56,7 +54,7 @@ task :categories do
 
   # Index Page
   File.open("browse/index.html", 'w+') do |file|
-    #file.puts index
+    file.puts index
   end
 
   puts 'Done.'
