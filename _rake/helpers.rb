@@ -1,10 +1,41 @@
+def build_category_front_matter (category, heritage='')
+  post = Hash.new
+  post['layout'] = 'category'
+  post['title'] = titleize(category[0])
+  post['category'] = category[0]
+  post['heritage'] = heritage.split('/')
+  if (category[1]['children'])
+    post['children'] = Array.new
+    category[1]['children'].each do |child|
+      post['children'].push(child[0])
+    end
+  end
+  if (category[1]['products'])
+    post['products'] = Array.new
+    category[1]['products'].each do |product|
+      post['products'].push(product)
+    end
+  end
+
+  # Save Index\
+  file = heritage + '/index.html'
+  puts file
+  FileUtils.mkdir_p(File.dirname(file)) unless File.exists?(File.dirname(file))
+  File.open(file, 'w+') do |file|
+    file.puts post.to_yaml
+    file.puts "---\n\n"
+  end
+
+  return post.to_yaml
+end
+
 def build_product_front_matter (product)
   post = Hash.new
   post['layout'] = 'product'
   post['title'] = product['product_name']
   post['sku'] = product['sku']
   post['categories'] = Array.new
-  post['categories'].push(seo_string(product['category']))
+  post['categories'].push(normalize_category(seo_string(product['category'])))
   post['categories'].push(seo_string(product['subcategory']))
   post['categories'].push(seo_string(product['product_group']))
   if (product['long_description']) 
@@ -45,7 +76,7 @@ def build_description_list (description)
     description_list = '<ul class="description">'
     @description.each_with_index do |item, index|
       if (index == 0)
-        description_header += "<h3>"+item+"</h3>"
+        description_header += "<h4>"+item+"</h4>"
       else
         description_list += "<li>"+item+"</li>"
       end
@@ -75,5 +106,13 @@ end
 
 def titleize(string)
   string.split("-").map(&:capitalize).join(" ")
+end
+
+def normalize_category(category)
+    category = 'kids' if category == 'kids-gear-and-clothing'
+    category = 'womens' if category == 'womens-clothing'
+    category = 'mens' if category == 'mens-clothing'
+    category = 'snow' if category == 'skiing-and-snowboarding'
+    return category
 end
 

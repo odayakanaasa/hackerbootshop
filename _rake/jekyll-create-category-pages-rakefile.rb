@@ -33,6 +33,7 @@ task :categories do
     html = "---\n";
     html += "layout: default\n";
     html += "title: Browse " + category_name + "\n";
+    html += "category: " + category + "\n"
     html += "---\n\n";
  
     # List of Posts

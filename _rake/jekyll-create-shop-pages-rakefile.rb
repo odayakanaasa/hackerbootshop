@@ -54,6 +54,7 @@ task :products do
         file_name = "_posts/" + random_year.to_s + "-" + random_month.to_s + "-" +  random_day.to_s + "-" + pid + ".html"
       end
       updated_product_map[pid] = file_name
+      #puts build_product_front_matter(products[pid])
       File.open(file_name, 'w+') do |file|
         file.puts build_product_front_matter(products[pid])
         file.puts "---\n"

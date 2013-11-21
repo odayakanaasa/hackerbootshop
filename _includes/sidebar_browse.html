@@ -1,11 +1,10 @@
 <div class="list-group">
-<a href="/hackerbootshop/browse/camping-hiking/" class="list-group-item">Camping & Hiking</a>
-<a href="/hackerbootshop/browse/footwear/" class="list-group-item">Footwear</a>
-<a href="/hackerbootshop/browse/gifts/" class="list-group-item">Gifts</a>
-<a href="/hackerbootshop/browse/kids/" class="list-group-item">Kids'</a>
-<a href="/hackerbootshop/browse/luggage-travel/" class="list-group-item">Luggage & Travel</a>
-<a href="/hackerbootshop/browse/mens/" class="list-group-item">Men's Clothing</a>
-<a href="/hackerbootshop/browse/skiing/" class="list-group-item">Skiing</a>
-<a href="/hackerbootshop/browse/snowboarding/" class="list-group-item">Snowboarding</a>
-<a href="/hackerbootshop/browse/womens/" class="list-group-item">Women's Clothing</a>
+	{% for category in site.data.categories %}
+		{% if category[1]['products'].size > 12 %}
+	        {% assign words = category[0] | split: '-' %}
+	        {% assign title = words | join: ' ' %}
+	        {% assign title = title | camelcase %}
+			<a href="{{site.baseurl}}/{{category[0]}}" class="list-group-item">{{ title }}</a>
+		{% endif %}
+	{% endfor %}
 </div>
