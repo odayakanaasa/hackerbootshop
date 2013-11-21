@@ -1,7 +1,7 @@
 Hacker Bootstrap Shop
 ==============
 
-## Welcome to my little experiment in eCommerce using Jekyll, Avantlink, Nokogiri, Twitter Bootstrap, and Facebook
+Welcome to my little experiment in eCommerce using Jekyll, Avantlink, Nokogiri, Twitter Bootstrap, and Facebook
 
 ### Jekyll
 
@@ -24,5 +24,9 @@ I wanted to build a mobile first responsive website with a minimal amount of wor
 I needed to fill out the product detail pages with a "review" system of sorts.  I landed on Facebook Comments.  Learn more here: [https://developers.facebook.com/docs/plugins/comments/](https://developers.facebook.com/docs/plugins/comments/)
 
 Please browse the site [http://joecode.com/hackerbootshop/](http://joecode.com/hackerbootshop/) and report any issues. [https://github.com/joewils/hackerbootshop/issues](https://github.com/joewils/hackerbootshop/issues)
+
+# Warning!
+
+The "Buy now" buttons are wired up with my affilate link.  If you end up purchasing anything I get a kickback from REI via Avantlink...
 
 -joe-
