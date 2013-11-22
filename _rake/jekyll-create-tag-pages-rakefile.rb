@@ -10,6 +10,7 @@ task :tags do
   require 'rubygems'
   require 'jekyll'
   require 'yaml'
+  require 'pp'
   include Jekyll::Filters
   
   options = Jekyll.configuration({})

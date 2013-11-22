@@ -10,3 +10,38 @@
 	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=245984558886848";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
+
+{% if page.sku %}
+	<script>
+	$( document ).ready(function() {
+		(function() {
+		  var relationships = "{{site.baseurl}}/json/relationships/{{page.sku}}.json";
+		  $.getJSON( relationships, {})
+		    .done(function( data ) {
+
+		    	$('#also_bought').empty()
+		      $.each( data['bought'], function( i, product ) {
+		      	console.log(product)
+		      	var li = '<li><a href="{{site.baseurl}}/'+product.url+'">'+product.title+'</a></li>'
+		      	$('#also_bought').append( li )
+		      });
+
+		    	$('#also_viewed').empty()
+		      $.each( data['viewed'], function( i, product ) {
+		      	console.log(product)
+		      	var li = '<li><a href="{{site.baseurl}}/'+product.url+'">'+product.title+'</a></li>'
+		      	$('#also_viewed').append( li )
+		      });
+
+		    	$('#frequently_together').empty()
+		      $.each( data['together'], function( i, product ) {
+		      	console.log(product)
+		      	var h4 = '<a href="{{site.baseurl}}/'+product.url+'">'+product.title+'</a>'
+		      	$('#frequently_together').append( h4 )
+		      });
+
+		    });
+		})();
+	});
+	</script>
+{% endif %}

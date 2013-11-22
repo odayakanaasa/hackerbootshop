@@ -15,7 +15,7 @@ task :products do
   updated_product_map = Hash.new
 
   # XML
-  reader = Nokogiri::XML::Reader(File.open("_xml/avantlink.xml"))
+  reader = Nokogiri::XML::Reader(File.open("_xml/Rei_81603_datafeed.xml"))
 
   # Products
   products = Hash.new
@@ -47,7 +47,7 @@ task :products do
       if (existing_product_map[pid])
         file_name =  existing_product_map[pid]
       else       
-        random_time = time_rand Time.local(0, 1, 1), Time.local(50, 12, 31)
+        random_time = time_rand Time.local(51, 1, 1), Time.local(51, 12, 31)
         random_year = random_time.strftime("%Y")
         random_month = random_time.strftime("%m")
         random_day = random_time.strftime("%d")

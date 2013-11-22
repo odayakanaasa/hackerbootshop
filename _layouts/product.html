@@ -112,6 +112,12 @@ layout: default
 				</div>
 			{% endif %}
 
+			<h3>Frequently Purchased With:</h3>
+			<h4 id="frequently_together"><i class="loading">loading...</i></h4>
+			
+			<h3>Customers Who Viewed This Item Also Viewed:</h3>
+			<ul id="also_viewed"><li class="loading">loading...</li></ul>
+
 			{% if site.related_posts %}
 				<h3>Related Posts:</h3>
 				<ul class="related_posts">
@@ -120,6 +126,9 @@ layout: default
 				{% endfor %}
 				</ul>
 			{% endif %}
+
+			<h3>Customers Who Bought This Item Also Bought:</h3>
+			<ul id="also_bought"><li class="loading">loading...</li></ul>
 
 			<h3>Product Reviews:</h3>
 			<div class="fb-comments" data-href="http://joecode.com{{site.baseurl}}{{page.url}}" data-colorscheme="light" data-numposts="10"></div>
@@ -172,15 +181,15 @@ layout: default
 				</ul>
 			{% endif %}
 
-			<h3>&larr;&nbsp;-&nbsp;&rarr;</h3>
-			<ul>
-				{% if page.previous %}
-					<li><a href="{{site.baseurl}}{{page.previous.url}}">{{page.previous.title}}</a></li>
-				{% endif %}
-				{% if page.next %}
-					<li><a href="{{site.baseurl}}{{page.next.url}}">{{page.next.title}}</a></li>
-				{% endif %}
-			</ul>
+				<h3>&larr;&nbsp;-&nbsp;&rarr;</h3>
+				<ul>
+					{% if page.previous %}
+						<li><a href="{{site.baseurl}}{{page.previous.url}}">{{page.previous.title}}</a></li>
+					{% endif %}
+					{% if page.next %}
+						<li><a href="{{site.baseurl}}{{page.next.url}}">{{page.next.title}}</a></li>
+					{% endif %}
+				</ul>
 
 			</div>
 		</div>
@@ -190,5 +199,4 @@ layout: default
 <div class="row">
 	{{ content }}
 </div>
-
 

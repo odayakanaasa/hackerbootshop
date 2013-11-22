@@ -1,6 +1,6 @@
 desc 'Generate Category Index Pages'
 
-task :category_index do
+task :categories do
 
   puts "Generating Category Index Pages..."
   require 'rubygems'
