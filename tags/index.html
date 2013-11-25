@@ -3,13 +3,15 @@ layout: default
 title: tags
 ---
 
+<!-- 
+Get random product for each tag and display thumbnail with tag title
 <div class="row">
   <div class="col-md-3">
     <div class="list-group">
     {% for tag in site.tags %}
       <a class="list-group-item" href="{{site.baseurl}}/tags/{{ tag }}">
       	{{ tag }}
-      	<span class="badge">{{ site.tags.tent }}</span>
+      	<span class="badge"></span>
       </a>
     {% endfor %}
     </div>
@@ -20,6 +22,8 @@ title: tags
 </div>
 
 <hr />
+
+-->
 
 <div class="list-group"><a class="list-group-item" href="/hackerbootshop/tags/3-season/index.html"><span class="badge">3</span>3-season</a>
 <a class="list-group-item" href="/hackerbootshop/tags/accessories/index.html"><span class="badge">34</span>accessories</a>
