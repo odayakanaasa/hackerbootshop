@@ -19,24 +19,13 @@ task :tags do
 
   products = YAML.load_file('_data/products.yml')
 
-  # Index YML Front Matter  
-  index_fm = "---\n";
-  index_fm += "layout: default\n";
-  index_fm += "title: Browse Tags\n";
-  index_fm += "---\n\n";
-
-  # Posts
-  index_list = "<div class=\"list-group\">"
+   # Posts
   site.tags.sort.each do |tag, posts|
-
-    # Index
-    index_list += "<a class=\"list-group-item\" href=\"" + site.baseurl + "/tags/" +  tag + "/index.html\">"
-    index_list += "<span class=\"badge\">" + posts.length.to_s + "</span>" + tag + "</a>\n"
 
     # YML Front Matter
     html = "---\n";
     html += "layout: tags\n";
-    html += "title: Browse " + tag + "\n";
+    html += "title: " + tag + "\n";
     html += "---\n\n";
 
     # Posts
@@ -49,7 +38,7 @@ task :tags do
           html += "<a href=\"" + site.baseurl + post_data["url"] + "\">";
           html += "<img src=\"" + products[pid]['image_url'] + "\" class=\"img-responsive\" />";
           html += "</a>\n"
-          html += "<div class=\"caption\" style=\"height:124px;overflow:hidden\">\n"
+          html += "<div class=\"caption\" style=\"height:100px;overflow:hidden\">\n"
             html += "<h4>" + post_data["title"] + "</h4>\n";
           html += "</div>\n";
         html += "</div>\n";
@@ -64,13 +53,6 @@ task :tags do
       file.puts html
     end
 
-  end
-  index_list += "</div>\n\n"
-
-  # Index Page
-  File.open("tags/index.html", 'w+') do |file|
-    file.puts index_fm
-    file.puts index_list
   end
 
   puts 'Done.'

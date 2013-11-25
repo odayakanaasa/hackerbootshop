@@ -48,14 +48,20 @@
           </div>
         </div>
         <div class="col-md-9">
-          <div class="list-group">
+          <div class="row">
           {% for product in page.products %}
               {% assign product_data = site.data.products[product] %}
               {% assign product_url = site.data.producturlmap[product] %}
-              <a class="list-group-item" href="{{site.baseurl}}{{ product_url }}">
-                <span class="label label-success">${{ product_data['sale_price'] }}</span>&nbsp;
-                {{ product_data['product_name'] }}
-              </a>
+              <div class="col-xs-6 col-sm-4 col-md-3">
+                  <div class="thumbnail" style="margin-bottom:30px;max-width:300px">
+                    <a href="{{site.baseurl}}{{ product_url }}"><img src="{{ product_data['image_url'] }}" class="img-responsive"></a>
+                    <div class="caption" style="height:100px;overflow:hidden">
+                      <p>
+                        {% if product_data['sale_price'] %}<span class="label label-success">${{ product_data['sale_price'] }}</span>&nbsp;{% endif %}<a href="{{site.baseurl}}{{ product_url }}">{{ product_data['product_name'] }}</a>
+                      </p>
+                    </div>
+                  </div>
+              </div>
           {% endfor %}
           </div>
         </div>

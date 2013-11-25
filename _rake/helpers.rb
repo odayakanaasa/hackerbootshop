@@ -34,6 +34,9 @@ def build_product_front_matter (product)
   post['layout'] = 'product'
   post['title'] = product['product_name']
   post['sku'] = product['sku']
+  post['lg_image'] = product['image_url']
+  post['md_image'] = product['medium_image_url']
+  post['sm_image'] = product['thumb_url']
   post['categories'] = Array.new
   post['categories'].push(normalize_category(seo_string(product['category'])))
   post['categories'].push(seo_string(product['subcategory']))
