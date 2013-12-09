@@ -1,19 +1,31 @@
 
-    <script src="{{ site.baseurl}}/bower_components/bootstrap/assets/js/jquery.js"></script>
-    <script src="{{ site.baseurl}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ site.baseurl}}/bower_components/jquery/jquery.min.js"></script>
+<script src="{{ site.baseurl}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ site.baseurl}}/bower_components/jquery.lazyload/jquery.lazyload.min.js"></script>
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=245984558886848";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Lazy Load Images -->
+<script>
+$(document).ready(function() {
+	(function() {
+  	$('img.lazy').lazyload({});
+	})();
+});
+</script>
 
+<!-- Product Page -->
 {% if page.sku %}
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=245984558886848";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<script>
-	$( document ).ready(function() {
+	$(document).ready(function() {
 		(function() {
 		  var relationships = "{{site.baseurl}}/json/relationships/{{page.sku}}.json";
 		  $.getJSON( relationships, {})
@@ -21,21 +33,18 @@
 
 		    	$('#also_bought').empty()
 		      $.each( data['bought'], function( i, product ) {
-		      	console.log(product)
 		      	var li = '<li><a href="{{site.baseurl}}/'+product.url+'">'+product.title+'</a></li>'
 		      	$('#also_bought').append( li )
 		      });
 
 		    	$('#also_viewed').empty()
 		      $.each( data['viewed'], function( i, product ) {
-		      	console.log(product)
 		      	var li = '<li><a href="{{site.baseurl}}/'+product.url+'">'+product.title+'</a></li>'
 		      	$('#also_viewed').append( li )
 		      });
 
 		    	$('#frequently_together').empty()
 		      $.each( data['together'], function( i, product ) {
-		      	console.log(product)
 		      	var h4 = '<a href="{{site.baseurl}}/'+product.url+'">'+product.title+'</a>'
 		      	$('#frequently_together').append( h4 )
 		      });
@@ -45,3 +54,18 @@
 	});
 	</script>
 {% endif %}
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-191795-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
