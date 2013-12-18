@@ -18,12 +18,13 @@ task :running do
   # Index YML Front Matter  
   index = "---\n";
   index += "layout: default\n";
-  index += "title: Welcome\n";
+  index += "title: Running\n";
   index += "---\n\n";
 
   # Posts
   index += "<div class=\"row\">\n\n"
-  site.tags['running'].shuffle.first(12).each do |post|
+  #site.tags['running'].shuffle.first(12).each do |post|
+  site.tags['running'].first(24).each do |post|
     post_data = post.to_liquid
     pid = post_data['sku']
     index += "<div class=\"col-sm-6 col-md-3\">\n";

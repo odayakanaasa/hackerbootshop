@@ -30,12 +30,13 @@ task :welcome do
   # Index YML Front Matter  
   index = "---\n";
   index += "layout: default\n";
-  index += "title: Welcome to Hacker Bootstrap Shop\n";
+  index += "title: Welcome\n";
   index += "---\n\n";
 
   index += "<h2>Mess:</h2>"
   index += "<div class=\"row\">\n\n"
-  site.tags['mess'].shuffle.first(4).each do |post|
+  #site.tags['mess'].shuffle.first(4).each do |post|
+  site.tags['mess'].first(4).each do |post|
     post_data = post.to_liquid
     pid = post_data['sku']
     index += thumbnail(site.baseurl, post_data["url"], products[pid]['image_url'], post_data["title"])
@@ -44,7 +45,8 @@ task :welcome do
 
   index += "<h2>Coffee:</h2>"
   index += "<div class=\"row\">\n\n"
-  site.tags['coffee'].shuffle.first(4).each do |post|
+  #site.tags['coffee'].shuffle.first(4).each do |post|
+  site.tags['coffee'].first(4).each do |post|
     post_data = post.to_liquid
     pid = post_data['sku']
     index += thumbnail(site.baseurl, post_data["url"], products[pid]['image_url'], post_data["title"])
@@ -53,7 +55,8 @@ task :welcome do
 
   index += "<h2>Yoga Pants:</h2>"
   index += "<div class=\"row\">\n\n"
-  site.tags['yoga-pants'].shuffle.first(4).each do |post|
+  #site.tags['yoga-pants'].shuffle.first(4).each do |post|
+  site.tags['yoga-pants'].first(4).each do |post|
     post_data = post.to_liquid
     pid = post_data['sku']
     index += thumbnail(site.baseurl, post_data["url"], products[pid]['image_url'], post_data["title"])
