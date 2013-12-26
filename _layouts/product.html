@@ -79,6 +79,24 @@ layout: default
 				<p class="description">{{ product.short_description }}</p>
 			{% endif %}
 
+			<h3>Frequently Purchased With:</h3>
+			<h4 id="frequently_together"><i class="loading">loading...</i></h4>
+			
+			<h3>Customers Who Viewed This Item Also Viewed:</h3>
+			<ul id="also_viewed"><li class="loading">loading...</li></ul>
+
+			{% if site.related_posts %}
+				<h3>Related Posts:</h3>
+				<ul class="related_posts">
+				{% for post in site.related_posts %}
+					<li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+
+			<h3>Customers Who Bought This Item Also Bought:</h3>
+			<ul id="also_bought"><li class="loading">loading...</li></ul>
+
 			{% if product.variants.size > 1 %}
 				<h3>Variants:</h3>
 				<div class="table-responsive">
@@ -111,24 +129,6 @@ layout: default
 					</table>
 				</div>
 			{% endif %}
-
-			<h3>Frequently Purchased With:</h3>
-			<h4 id="frequently_together"><i class="loading">loading...</i></h4>
-			
-			<h3>Customers Who Viewed This Item Also Viewed:</h3>
-			<ul id="also_viewed"><li class="loading">loading...</li></ul>
-
-			{% if site.related_posts %}
-				<h3>Related Posts:</h3>
-				<ul class="related_posts">
-				{% for post in site.related_posts %}
-					<li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
-				{% endfor %}
-				</ul>
-			{% endif %}
-
-			<h3>Customers Who Bought This Item Also Bought:</h3>
-			<ul id="also_bought"><li class="loading">loading...</li></ul>
 
 			<h3>Product Reviews:</h3>
 			<div class="fb-comments" data-href="http://joecode.com{{site.baseurl}}{{page.url}}" data-colorscheme="light" data-numposts="10"></div>
