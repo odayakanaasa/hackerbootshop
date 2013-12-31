@@ -321,6 +321,7 @@ luggage-travel:
           products:
           - '816279'
           - '837264'
+          - '837264'
       products:
       - '834739'
       - '834738'
@@ -331,6 +332,7 @@ luggage-travel:
       - '809162'
       - '834727'
       - '819498'
+      - '837264'
     luggage:
       children:
         wheeled-duffels:
@@ -394,6 +396,7 @@ luggage-travel:
           - '828819'
           - '797758'
           - '804636'
+          - '855336'
         umbrellas:
           products:
           - '719546'
@@ -425,6 +428,7 @@ luggage-travel:
       - '797760'
       - '765682'
       - '854915'
+      - '855336'
     personal-care:
       children:
         health-care:
@@ -755,6 +759,8 @@ luggage-travel:
   - '852566'
   - '852567'
   - '837263'
+  - '855336'
+  - '837264'
 footwear:
   children:
     kids-boots-and-shoes:
@@ -872,6 +878,7 @@ footwear:
           - '857545'
           - '857549'
           - '848834'
+          - '841800'
         hiking-and-backpacking-socks:
           products:
           - '837176'
@@ -949,6 +956,7 @@ footwear:
       - '857545'
       - '857549'
       - '848834'
+      - '841800'
     kids-slippers-and-sandals:
       children:
         kids-sandals:
@@ -1289,6 +1297,7 @@ footwear:
   - '804366'
   - '811478'
   - '836484'
+  - '841800'
   - '806281'
 womens:
   children:
@@ -1438,6 +1447,9 @@ womens:
           - '842769'
           - '844051'
           - '844893'
+          - '844040'
+          - '844069'
+          - '861641'
         womens-fleece-pants:
           products:
           - '801610'
@@ -1505,6 +1517,9 @@ womens:
       - '861354'
       - '844956'
       - '799468'
+      - '844040'
+      - '844069'
+      - '861641'
     womens-shirts:
       children:
         womens-running-shirts:
@@ -1522,6 +1537,7 @@ womens:
           - '854297'
           - '863240'
           - '854303'
+          - '861652'
         womens-casual-shirts:
           products:
           - '815016'
@@ -1534,6 +1550,7 @@ womens:
           - '853275'
           - '852441'
           - '852367'
+          - '852441'
         womens-hiking-travel-shirts:
           products:
           - '853112'
@@ -1622,6 +1639,8 @@ womens:
       - '852367'
       - '854303'
       - '854549'
+      - '861652'
+      - '852441'
     womens-gloves-and-mittens:
       children:
         womens-fleece-gloves:
@@ -1703,6 +1722,8 @@ womens:
           - '854881'
           - '856446'
           - '844991'
+          - '852470'
+          - '852471'
         womens-hoodies:
           products:
           - '849747'
@@ -1717,6 +1738,7 @@ womens:
           products:
           - '854879'
           - '852398'
+          - '852446'
           - '852446'
       products:
       - '851747'
@@ -1738,6 +1760,9 @@ womens:
       - '852401'
       - '856446'
       - '844991'
+      - '852470'
+      - '852471'
+      - '852446'
     womens-jackets:
       children:
         womens-down-jackets:
@@ -2431,6 +2456,7 @@ womens:
           - '863244'
           - '844079'
           - '844897'
+          - '844044'
       products:
       - '814517'
       - '844044'
@@ -2438,6 +2464,7 @@ womens:
       - '814516'
       - '844079'
       - '844897'
+      - '844044'
     womens-headwear:
       children:
         headbands:
@@ -2446,6 +2473,7 @@ womens:
           - '790913'
           - '852721'
           - '836764'
+          - '852721'
         womens-scarves:
           products:
           - '856815'
@@ -2478,6 +2506,7 @@ womens:
       - '853905'
       - '847899'
       - '836805'
+      - '852721'
       - '790919'
     waterproof-rainwear:
       children:
@@ -3035,11 +3064,21 @@ womens:
   - '867463'
   - '867464'
   - '851974'
+  - '852721'
   - '855584'
+  - '852470'
   - '790919'
   - '853943'
   - '854666'
+  - '852471'
+  - '844040'
+  - '861652'
   - '861246'
+  - '852441'
+  - '852446'
+  - '844069'
+  - '861641'
+  - '844044'
 kids:
   children:
     accessories-infants-and-toddlers:
@@ -4568,6 +4607,7 @@ mens:
           - '857493'
           - '819575'
           - '854334'
+          - '852745'
         mens-ball-caps:
           products:
           - '856802'
@@ -4647,6 +4687,7 @@ mens:
       - '847880'
       - '819575'
       - '854334'
+      - '852745'
     mens-shirts:
       children:
         mens-hiking-travel-shirts:
@@ -4687,6 +4728,8 @@ mens:
           - '844121'
           - '843927'
           - '861985'
+          - '861984'
+          - '861985'
         mens-casual-shirts:
           products:
           - '836664'
@@ -4715,6 +4758,7 @@ mens:
           - '844521'
           - '844518'
           - '853976'
+          - '862668'
       products:
       - '816464'
       - '853152'
@@ -4774,6 +4818,9 @@ mens:
       - '828117'
       - '794434'
       - '861985'
+      - '861984'
+      - '862668'
+      - '861985'
     activewear:
       children:
         mens-workout-jackets-and-vests:
@@ -4802,6 +4849,8 @@ mens:
           - '863478'
           - '863475'
           - '856476'
+          - '867377'
+          - '867446'
         mens-workout-tanks:
           products:
           - '863473'
@@ -4829,6 +4878,8 @@ mens:
       - '848762'
       - '863480'
       - '867461'
+      - '867377'
+      - '867446'
     mens-gloves-and-mittens:
       children:
         mens-insulated-gloves:
@@ -4966,6 +5017,7 @@ mens:
           - '842733'
           - '842734'
           - '854444'
+          - '854443'
         long-underwear-bottoms:
           products:
           - '863471'
@@ -4988,6 +5040,7 @@ mens:
           - '867372'
           - '859208'
           - '853196'
+          - '867410'
         mens-lightweight-long-underwear-tops:
           products:
           - '854422'
@@ -5109,6 +5162,8 @@ mens:
       - '837142'
       - '867411'
       - '828169'
+      - '867410'
+      - '854443'
     sportswear:
       children:
         mens-casual-jackets:
@@ -5198,6 +5253,7 @@ mens:
           products:
           - '844525'
           - '844495'
+          - '844525'
       products:
       - '827176'
       - '844839'
@@ -5218,6 +5274,7 @@ mens:
       - '844495'
       - '845088'
       - '862029'
+      - '844525'
     fleece-down-and-wind-outerwear:
       children:
         mens-insulated-jackets-and-vests:
@@ -5857,7 +5914,16 @@ mens:
   - '867411'
   - '828169'
   - '851900'
+  - '867377'
+  - '867446'
   - '867462'
+  - '867410'
+  - '861984'
+  - '844525'
+  - '862668'
+  - '852745'
+  - '854443'
+  - '861985'
 camping-hiking:
   children:
     cookware:
@@ -5978,6 +6044,7 @@ camping-hiking:
           - '828217'
           - '794797'
           - '828229'
+          - '794797'
         kids-sleeping-bags:
           products:
           - '828228'
@@ -6045,6 +6112,7 @@ camping-hiking:
       - '847627'
       - '847665'
       - '828229'
+      - '794797'
     camp-bathroom:
       children:
         towels:
@@ -6460,6 +6528,7 @@ camping-hiking:
           - '808972'
           - '856586'
           - '830752'
+          - '825421'
       products:
       - '822146'
       - '765762'
@@ -6475,6 +6544,7 @@ camping-hiking:
       - '794391'
       - '856586'
       - '830752'
+      - '825421'
     tents:
       children:
         backpacking-tents:
@@ -7414,11 +7484,13 @@ camping-hiking:
   - '777772'
   - '792857'
   - '867436'
+  - '794797'
   - '847930'
   - '829207'
   - '867498'
   - '846909'
   - '867435'
+  - '825421'
 skiing:
   children:
     mens-ski-clothing:
