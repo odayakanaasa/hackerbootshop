@@ -4,16 +4,24 @@ title: browse all products
 ---
 
 {% assign current_post_date = site.date %}
+
+{% if paginator.page == 1 %}
 <h1>{{current_post_date}}</h1>
+{% endif %}
+
 <div class="row">
 
 {% for post in paginator.posts %}
 
 	{% if current_post_date != post.date %}
 		{% assign current_post_date = post.date %}
-		</div>
-		<h1>{{current_post_date | date: "%A, %B %d, %Y" }}</h1>
-		<div class="row">
+			{% capture old_post %}20100101{% endcapture %}
+			{% capture current_post %}{{post.date | date: "%Y%m%d"}}{% endcapture %}
+			{% if current_post > old_post %}
+				</div>
+				<h1>{{current_post_date | date: "%A, %B %d, %Y" }}</h1>
+				<div class="row">
+			{% endif %}
 	{% endif %}
 
 	<div class="col-xs-6 col-sm-4 col-md-3">
@@ -26,6 +34,7 @@ title: browse all products
 	      </div>
 	    </div>
 	</div>
+	
 {% endfor %}
 
 </div>
