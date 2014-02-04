@@ -7,7 +7,8 @@ import '_rake/jekyll-create-category-data.rb'
 import '_rake/jekyll-create-related-data.rb'
 import '_rake/jekyll-create-category-index-pages.rb'
 import '_rake/jekyll-create-producturlmap-data.rb'
+import '_rake/jekyll-create-404-page-rakefile.rb'
 
-task :default => [:products, :producturlmap_data, :category_data, :categories, :tags, :related]
+task :default => [:products, :producturlmap_data, :category_data, :categories, :tags, :related, :four]
 
 task :marketing => [:running, :welcome]
