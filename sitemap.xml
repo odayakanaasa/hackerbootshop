@@ -4,9 +4,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {% for page in site.posts %}
         {% if page.layout != nil %}
-            {% if page.layout != 'feed' %}
+            {% if page.layout == 'product' %}
                 <url>
-                    <loc>http://joecode.com/hackerbootshop{{ page.url | remove: 'index.html' }}</loc>
+                    <loc>http://joecode.com/hackerbootshop{{ page.url }}</loc>
                 </url>
             {% endif %}
         {% endif %}
