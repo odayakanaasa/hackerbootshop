@@ -2,18 +2,31 @@
 layout: browse
 title: browse all products
 ---
+
+{% assign current_post_date = site.date %}
+<h1>{{current_post_date}}</h1>
 <div class="row">
-		{% for post in paginator.posts %}
-		<div class="col-xs-6 col-sm-4 col-md-3">
-				<div class="thumbnail" style="margin-bottom:30px;max-width:300px">
-		      <a href="{{ site.baseurl}}{{ post.url }}"><img data-original="{{ post.lg_image }}" class="lazy img-responsive"></a>
-		      <div class="caption" style="height:100px;overflow:hidden">
-		        <p>
-		        	{% if post.sale_price %}<span class="label label-success">${{ post.sale_price }}</span>&nbsp;<a href="{{ site.baseurl}}{{ post.url }}">{% endif %}{{ post.title }}</a>
-		        </p>
-		      </div>
-		    </div>
+
+{% for post in paginator.posts %}
+
+	{% if current_post_date != post.date %}
+		{% assign current_post_date = post.date %}
 		</div>
-	  {% endfor %}
+		<h1>{{current_post_date | date: "%A, %B %d, %Y" }}</h1>
+		<div class="row">
+	{% endif %}
+
+	<div class="col-xs-6 col-sm-4 col-md-3">
+			<div class="thumbnail" style="margin-bottom:30px;max-width:300px">
+	      <a href="{{ site.baseurl}}{{ post.url }}"><img data-original="{{ post.lg_image }}" class="lazy img-responsive"></a>
+	      <div class="caption" style="height:100px;overflow:hidden">
+	        <p>
+	        	{% if post.sale_price %}<span class="label label-success">${{ post.sale_price }}</span>&nbsp;<a href="{{ site.baseurl}}{{ post.url }}">{% endif %}{{ post.title }}</a>
+	        </p>
+	      </div>
+	    </div>
+	</div>
+{% endfor %}
+
 </div>
 
