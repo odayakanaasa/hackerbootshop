@@ -11,6 +11,8 @@ title: browse all products
 
 <div class="row">
 
+{% include top_level_categories.html %}
+
 {% for post in paginator.posts %}
 
 	{% if current_post_date != post.date %}

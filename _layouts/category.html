@@ -9,6 +9,7 @@
 
     <div class="container">
       <h2>
+        <a href="{{site.baseurl}}/">browse</a> &rarr; 
         {% capture heritage_url %}{{ site.baseurl }}{% endcapture %}
         {% for ancestor in page.heritage %}
             {% capture heritage_url %}{{ heritage_url }}/{{ancestor}}{% endcapture %}
