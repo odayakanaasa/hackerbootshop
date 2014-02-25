@@ -1,9 +1,9 @@
-name: Hacker Bootstrap Shop
+name: Tahoma Outdoor Gear
 markdown: redcarpet
 pygments: true
 
 #Github Deployment
-baseurl: /hackerbootshop
+baseurl: 
 #Local Deployment
 #baseurl: ""
 paginate: 100
