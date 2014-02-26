@@ -3,7 +3,7 @@ markdown: redcarpet
 pygments: true
 
 #Github Deployment
-baseurl: ""
+baseurl: "/"
 #Local Deployment
 #baseurl: ""
 paginate: 100
