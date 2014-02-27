@@ -9,7 +9,7 @@
         {% if page.layout != nil %}
             {% if page.layout == 'product' %}
                 <url>
-                    <loc>http://tahoma.joecode.com/{{ page.url }}</loc>
+                    <loc>http://tahoma.joecode.com{{ page.url }}</loc>
                 </url>
             {% endif %}
         {% endif %}
