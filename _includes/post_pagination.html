@@ -1,7 +1,7 @@
 <ul class="pagination" style="margin-top:0;padding-top:0;">
 
 	{% if paginator.previous_page %}
-		<li><a href="{{site.baseurl}}/{{ paginator.previous_page_path }}">&larr;&nbsp;</a></li>
+		<li><a href="{{site.baseurl}}{{ paginator.previous_page_path }}">&larr;&nbsp;</a></li>
 	{% else %}
 		<li class="disabled"><a href="#">&larr;&nbsp;</a></li>
 	{% endif %}
@@ -21,7 +21,7 @@
 	{% endif %}
 
 	{% if paginator.next_page %}
-		<li><a href="{{site.baseurl}}/{{ paginator.next_page_path }}">&nbsp;&rarr;</a></li>
+		<li><a href="{{site.baseurl}}{{ paginator.next_page_path }}">&nbsp;&rarr;</a></li>
 	{% else %}
 		<li class="disabled"><a href="#">&nbsp;&rarr;</a></li>
 	{% endif %}

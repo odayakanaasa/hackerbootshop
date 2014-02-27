@@ -54,16 +54,16 @@ task :products do
         random_month = random_time.strftime("%m")
         random_day = random_time.strftime("%d")
         file_name = "_posts/" + random_year.to_s + "-" + random_month.to_s + "-" +  random_day.to_s + "-" + pid + ".html"
-      end
-      updated_product_map[pid] = file_name
-      #puts build_product_front_matter(products[pid])
-      File.open(file_name, 'w+') do |file|
-        file.puts build_product_front_matter(products[pid])
-        file.puts "---\n"
-      end
-      # JSON Product Data
-      File.open("json/products/"+pid+".json", 'w+') do |file|
-        file.puts products[pid].to_json()
+        updated_product_map[pid] = file_name
+        #puts build_product_front_matter(products[pid])
+        File.open(file_name, 'w+') do |file|
+          file.puts build_product_front_matter(products[pid])
+          file.puts "---\n"
+        end
+        # JSON Product Data
+        File.open("json/products/"+pid+".json", 'w+') do |file|
+          file.puts products[pid].to_json()
+        end
       end
       puts pid
     end
