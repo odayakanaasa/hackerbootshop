@@ -14,6 +14,7 @@ task :four do
   site.read_posts('')
 
   products = YAML.load_file('_data/products.yml')
+  available_products = YAML.load_file('_data/productmap.yml')
 
   # Index YML Front Matter  
   index = "---\n";
@@ -22,26 +23,38 @@ task :four do
   index += "---\n\n";
 
   # Title
-  index += "<h1>404 Page Not Found!</h1>\n\n"
+  index += "<h1>404 Page Not Found.</h1>\n\n"
+  index += "<p>Chances are the item you're looking for is no longer for sale. Here's a random sampling of gear with availability:</p>\n\n"
 
   # Posts
   index += '<div class="row">'+"\n\n"
-  site.categories['camping-hiking'].shuffle.first(48).each do |post|
-    post_data = post.to_liquid
-    pid = post_data['sku']
-    index += "<div class=\"col-sm-6 col-md-3\">\n";
-      index += "<div class=\"thumbnail\" style=\"margin-bottom:30px;max-width:300px\">\n"
-        index += '<a href="' + site.baseurl + post_data["url"] + '"><img data-original="' + products[pid]['image_url'] + '" class="lazy img-responsive"></a>' + "\n"
-        index += "<div class=\"caption\" style=\"height:100px;overflow:hidden\">\n"
-          index += "<p>\n"
-            if products[pid]['sale_price']
-              index += '<span class="label label-success">' + products[pid]['sale_price'] + '</span>&nbsp;'
-              index += '<a href="' + site.baseurl + post_data["url"] + '">' + products[pid]['product_name'] + "</a>\n"
-            end
-          index += "</p>\n"
-        index += "</div>\n"
-      index += "</div>\n";
-    index += "</div>\n\n";
+  posts = site.posts.shuffle.first(128)
+  start = 0
+  stop = 48
+  posts.each do |post|
+    if start < stop
+      post_data = post.to_liquid
+      pid = post_data['sku']
+      if available_products[pid]
+        start = start + 1
+
+        index += '<div class="col-xs-6 col-sm-3 col-md-2">'
+          index += '<div class="thumbnail" style="margin-bottom:30px;max-width:300px;min-height:265px;">'
+            index += '<a href="' + site.baseurl + post_data['url'] + '"><img data-original="' + post_data['lg_image'] + '" class="lazy img-responsive"></a>'
+            index += '<div class="caption" style="height:100px;overflow:hidden">'
+              index += '<p>'
+                if post_data['sale_price']
+                  index += '<span class="label label-success">$' + post_data['sale_price'] + '</span>&nbsp;<a href="' + site.baseurl + post_data['url'] + '">'
+                end
+                index += post_data['title'] + '</a>'
+              index += '</p>'
+            index += '</div>'
+          index += '</div>'
+        index += '</div>'
+
+
+      end
+    end
   end
   index += "</div>\n\n"
 
