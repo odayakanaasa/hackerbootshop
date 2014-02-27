@@ -59,7 +59,7 @@ $(document).ready(function() {
     <script type="text/javascript">
        $(function() {
           var minFont = 15.0,
-              maxFont = 40.0,
+              maxFont = 50.0,
               diffFont = maxFont - minFont,
               size = 0;
            
@@ -75,12 +75,12 @@ $(document).ready(function() {
              $("#{{ forloop.index }}").css("font-size", size + "px");
           {% endfor %}
 
-          $('.tag-cloud a[class^="__tag"]').click(function() {
+          /*$('.tag-cloud a[class^="__tag"]').click(function() {
              $('.post-list').empty();
              $('#list_' + $(this).attr('id')).each(function() {
                 $('.post-list').append('<ul class="list-group">' + $(this).html() + '</ul>');
              });
-          });
+          });*/
        });
     </script>
 {% endif %}

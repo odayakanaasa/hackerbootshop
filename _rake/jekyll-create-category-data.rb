@@ -14,12 +14,15 @@ task :category_data do
   site = Jekyll::Site.new(options)
   site.read_posts('')
 
+  available_products = YAML.load_file('_data/productmap.yml')
+
   categories = Hash.new
 
   site.posts.each do |post|
     data = post.to_liquid
 
     next if data['categories'].length != 3
+    next if not available_products[data['sku']]
 
     primary_category = data['categories'][0]
     secondary_category = data['categories'][1]

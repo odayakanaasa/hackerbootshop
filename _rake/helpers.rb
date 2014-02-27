@@ -44,11 +44,17 @@ def build_product_front_matter (product)
   if (product['long_description']) 
     post['description_list'] = build_description_list(product['long_description'])
   end
+  post['tags'] = Array.new
   if (product['keywords'] != nil) 
-    post['tags'] = Array.new
     tags = product['keywords'].split(",")
     tags.each do |tag|
       post['tags'].push(seo_string(tag))
+    end
+  end
+  product['product_name'].split(" ").each do |word|
+    clean_word = seo_string(word)
+    if (clean_word != '') 
+      post['tags'].push(clean_word)
     end
   end
   if (product['retail_price'] == product['sale_price'])
@@ -103,7 +109,24 @@ def time_rand from = Time.now - (2*7*24*60*60), to = Time.now
 end
 
 def seo_string (name)
-  clean_name = name.gsub('/','-').gsub(' ','-').gsub('\'','').gsub('&-','').gsub(',','').gsub('(','').gsub(')','').gsub('----','-').gsub('---','-').gsub('--','-').gsub(':','')
+  clean_name = name.strip()
+  clean_name = clean_name.gsub('oz.','oz')
+  clean_name = clean_name.gsub('fl.','fl')
+  clean_name = clean_name.gsub('-','')
+  clean_name = clean_name.gsub('+','')
+  clean_name = clean_name.gsub('"','')
+  clean_name = clean_name.gsub('/','-')
+  clean_name = clean_name.gsub('.','-')
+  clean_name = clean_name.gsub(' ','-')
+  clean_name = clean_name.gsub('\'','')
+  clean_name = clean_name.gsub('&','')
+  clean_name = clean_name.gsub(',','')
+  clean_name = clean_name.gsub('(','')
+  clean_name = clean_name.gsub(')','')
+  clean_name = clean_name.gsub('----','-')
+  clean_name = clean_name.gsub('---','-')
+  clean_name = clean_name.gsub('--','-')
+  clean_name = clean_name.gsub(':','')
   clean_name = clean_name.downcase
 end
 

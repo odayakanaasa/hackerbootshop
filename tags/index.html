@@ -5,24 +5,13 @@ github : https://github.com/enrmarc/jekyll-tagcloud
 ---
 
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-12">
     <h2>browse by tag</h2>
     <div class="tag-cloud">
        {% for tag in site.tags %}
-          <a href="#posts-tag" id="{{ forloop.index }}" class="__tag" style="margin: 5px">{{ tag[0] }}</a>
-          <ul id="list_{{ forloop.index }}" style="display:none;">
-            <li class="list-group-item list-group-item-info"><a href="{{site.baseurl}}/tags/{{ tag[0] }}/">{{ tag[0] }}</a></li>
-             {% for post in tag[1] %}
-                <li class="list-group-item"><a href="{{site.baseurl}}/{{ post.url }}">{{ post.title }}</a></li>
-             {% endfor %}
-          </ul>
+          <a href="{{site.baseurl}}/tags/{{ tag[0] }}/" id="{{ forloop.index }}" class="__tag" style="margin: 5px">{{ tag[0] }}</a>
        {% endfor %}
     </div>
   </div>
-  <div class="col-md-3">
-    <h2>&nbsp;</h2>
-    <div id="posts-tags" class="post-list"></div>
-  </div>
 </div>
-
 

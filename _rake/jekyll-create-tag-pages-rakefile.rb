@@ -17,10 +17,13 @@ task :tags do
   site = Jekyll::Site.new(options)
   site.read_posts('')
 
-  products = YAML.load_file('_data/products.yml')
+  available_products = YAML.load_file('_data/productmap.yml')
 
    # Posts
   site.tags.sort.each do |tag, posts|
+
+    next if tag == ''
+    next if tag == '-'
 
     # YML Front Matter
     html = "---\n";
@@ -30,20 +33,27 @@ task :tags do
 
     # Posts
     html += "<div class=\"row\">\n\n"
+
     posts.reverse.each do |post|
       post_data = post.to_liquid
       pid = post_data['sku']
-      html += "<div class=\"col-sm-6 col-md-3\">\n";
-        html += "<div class=\"thumbnail alert alert-info\" style=\"margin-bottom:30px;max-width:300px\">\n";
-          html += "<a href=\"" + site.baseurl + post_data["url"] + "\">";
-          html += "<img src=\"" + products[pid]['image_url'] + "\" class=\"img-responsive\" />";
-          html += "</a>\n"
-          html += "<div class=\"caption\" style=\"height:100px;overflow:hidden\">\n"
-            html += "<h4>" + post_data["title"] + "</h4>\n";
-          html += "</div>\n";
-        html += "</div>\n";
-      html += "</div>\n\n";
+      if available_products[pid]
+        html += '<div class="col-xs-6 col-sm-3 col-md-2">'
+          html += '<div class="thumbnail" style="margin-bottom:30px;max-width:300px;min-height:265px;">'
+            html += '<a href="' + site.baseurl + post_data['url'] + '"><img data-original="' + post_data['lg_image'] + '" class="lazy img-responsive"></a>'
+            html += '<div class="caption" style="height:100px;overflow:hidden">'
+              html += '<p>'
+                if post_data['sale_price']
+                  html += '<span class="label label-success">$' + post_data['sale_price'] + '</span>&nbsp;<a href="' + site.baseurl + post_data['url'] + '">'
+                end
+                html += post_data['title'] + '</a>'
+              html += '</p>'
+            html += '</div>'
+          html += '</div>'
+        html += '</div>'
+      end
     end
+
     html += "</div>\n\n"
     
     # Page

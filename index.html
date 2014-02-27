@@ -30,16 +30,18 @@ title: browse all products
 			{% endif %}
 	{% endif %}
 
-	<div class="col-xs-6 col-sm-3 col-md-2">
-			<div class="thumbnail" style="margin-bottom:30px;max-width:300px;min-height:265px;">
-	      <a href="{{ site.baseurl}}{{ post.url }}"><img data-original="{{ post.lg_image }}" class="lazy img-responsive"></a>
-	      <div class="caption" style="height:100px;overflow:hidden">
-	        <p>
-	        	{% if post.sale_price %}<span class="label label-success">${{ post.sale_price }}</span>&nbsp;<a href="{{ site.baseurl}}{{ post.url }}">{% endif %}{{ post.title }}</a>
-	        </p>
-	      </div>
-	    </div>
-	</div>
+	{% if site.data.productmap[post.sku]  %}
+		<div class="col-xs-6 col-sm-3 col-md-2">
+				<div class="thumbnail" style="margin-bottom:30px;max-width:300px;min-height:265px;">
+		      <a href="{{ site.baseurl}}{{ post.url }}"><img data-original="{{ post.lg_image }}" class="lazy img-responsive"></a>
+		      <div class="caption" style="height:100px;overflow:hidden">
+		        <p>
+		        	{% if post.sale_price %}<span class="label label-success">${{ post.sale_price }}</span>&nbsp;<a href="{{ site.baseurl}}{{ post.url }}">{% endif %}{{ post.title }}</a>
+		        </p>
+		      </div>
+		    </div>
+		</div>
+	{% endif %}
 
 {% endfor %}
 
