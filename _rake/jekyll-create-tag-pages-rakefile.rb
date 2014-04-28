@@ -20,7 +20,7 @@ task :tags do
   available_products = YAML.load_file('_data/productmap.yml')
 
    # Posts
-  site.tags.sort.each do |tag, posts|
+  site.tags.each do |tag, posts|
 
     next if tag == ''
     next if tag == '-'

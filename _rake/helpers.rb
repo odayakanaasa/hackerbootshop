@@ -104,7 +104,7 @@ def build_post_link (post, baseurl)
       link += post_data['title'] + "</a>\n"
 end
 
-def time_rand from = Time.now - (2*7*24*60*60), to = Time.now
+def time_rand from = Time.now - (52*7*24*60*60), to = Time.now
   Time.at(from + rand * (to.to_f - from.to_f))
 end
 
