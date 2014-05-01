@@ -1,14 +1,26 @@
+require 'rake_performance'  
+require 'rubygems'
+require 'yaml'
+require 'pp'
+require 'jekyll'
+require 'json'
+require 'nokogiri'
+
 require_relative '_rake/helpers'
-import '_rake/jekyll-create-tag-pages-rakefile.rb'
-import '_rake/jekyll-create-shop-pages-rakefile.rb'
-import '_rake/jekyll-create-running-page-rakefile.rb'
-import '_rake/jekyll-create-welcome-page-rakefile.rb'
-import '_rake/jekyll-create-category-data.rb'
-import '_rake/jekyll-create-related-data.rb'
-import '_rake/jekyll-create-category-index-pages.rb'
-import '_rake/jekyll-create-producturlmap-data.rb'
-import '_rake/jekyll-create-404-page-rakefile.rb'
+import '_rake/site-data.rb'
+import '_rake/tag-data.rb'
+import '_rake/product-pages.rb'
+import '_rake/category-data.rb'
+import '_rake/related-data.rb'
+import '_rake/producturlmap-data.rb'
+import '_rake/404-page.rb'
 
-task :default => [:products, :producturlmap_data, :category_data, :categories, :tags, :related, :four]
+task :default => [
+  :products, 
+  :producturlmap_data, 
+  :category_data, 
+  :tag_data,
+  :related, 
+  :four
+]
 
-task :marketing => [:running, :welcome]
