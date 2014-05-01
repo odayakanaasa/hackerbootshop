@@ -1,6 +1,6 @@
 name: Tahoma Outdoor Gear
 markdown: redcarpet
-pygments: true
+pygments: false
 
 #Github Deployment
 baseurl: ""

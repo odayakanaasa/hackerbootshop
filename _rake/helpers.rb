@@ -73,7 +73,7 @@ def build_product_front_matter (product)
     post['you_save'] = sprintf('%.2f', you_save)
     #post['discount'] = 00.00 #TODO
   end
-  return post.to_yaml
+  return post
 end
 
 def build_description_list (description)
@@ -104,7 +104,7 @@ def build_post_link (post, baseurl)
       link += post_data['title'] + "</a>\n"
 end
 
-def time_rand from = Time.now - (52*7*24*60*60), to = Time.now
+def time_rand from = Time.now - (2*7*24*60*60), to = Time.now
   Time.at(from + rand * (to.to_f - from.to_f))
 end
 
@@ -139,6 +139,31 @@ def normalize_category(category)
     category = 'womens' if category == 'womens-clothing'
     category = 'mens' if category == 'mens-clothing'
     category = 'snow' if category == 'skiing-and-snowboarding'
+    category = 'paddling' if category == 'kayaking-canoeing'
+    category = 'books' if category == 'books-and-maps'
+    category = 'camping-hiking' if category == 'camping-and-hiking'
+    category = 'snow' if category == 'cross-country-skiing'
+    category = 'snow' if category == 'crosscountry-skiing'
+    category = 'snow' if category == 'snowboarding'
+    category = 'snow' if category == 'snowshoeing'
+    category = 'snow' if category == 'skiing'
+    category = 'travel' if category == 'travel-and-luggage'
+    category = 'misc' if category == 'products-assorted'
+    category = 'toys' if category == 'pets-toys-and-picnicking'
+    category = 'gifts' if category == 'lifestyle-and-gifts'
     return category
+end
+
+def good_tag(tag)
+  return false if (tag.to_f > 0 and tag.to_f < 100) 
+  return false if (tag == '')
+  return false if (tag == ' ')
+  return false if (tag == "\t")
+  return false if (tag == 'of')
+  return false if (tag == 'set')
+  return false if (tag == 'the')
+  return false if (tag == 'a')
+  return false if (tag == 'and')
+  return true
 end
 
