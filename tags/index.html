@@ -9,7 +9,7 @@ github : https://github.com/enrmarc/jekyll-tagcloud
     <h2>browse by tag</h2>
     <div class="tag-cloud">
        {% for tag in site.tags %}
-          <a href="{{site.baseurl}}/tags/{{ tag[0] }}/" id="{{ forloop.index }}" class="__tag" style="margin: 5px">{{ tag[0] }}</a>
+          <a href="{{site.baseurl}}/tags/?tag={{ tag[0] }}" id="{{ forloop.index }}" class="__tag" style="margin: 5px">{{ tag[0] }}</a>
        {% endfor %}
     </div>
   </div>
