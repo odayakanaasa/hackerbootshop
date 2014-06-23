@@ -18,8 +18,18 @@ task :products do
       pid = fragment.xpath('.//SKU').text
       next unless pid != ''
       brand = fragment.xpath('.//Brand_Name').text
-      # Limit Products to REI or Novara ~1000 vs. ~15,000
-      #next unless brand == 'Rei' or brand == 'Novara'
+      sub_cat = fragment.xpath('.//SubCategory').text
+      group = fragment.xpath('.//Product_Group').text
+      # Limit Products
+      next unless brand == 'Rei' or 
+                  brand == 'Novara' or 
+                  brand == 'The North Face' or 
+                  brand == 'Patagonia' or 
+                  brand == 'Roxy' or 
+                  brand == 'Prana' or 
+                  group == 'Women\'s Swimsuits' or
+                  sub_cat == 'Women\'s Underwear'or
+                  sub_cat == 'Women\'s Skirts And Dresses'
       $products[pid] = Hash.new
       fragment.children.each do |node|
         next if node.name == 'text'

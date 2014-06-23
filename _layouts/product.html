@@ -150,17 +150,17 @@ layout: default
 		                {% assign words = page.categories[0] | split: '-' %}
 		                {% assign title = words | join: ' ' %}
 		                {% assign title = title | camelcase %}
-		                <a href="{{site.baseurl}}/browse/?cat={{ page.categories[0] }}">{{ title }}</a>
+		                <a href="{{site.baseurl}}/browse/{{ page.categories[0] }}">{{ title }}</a>
 		              {% when 2 %}
 		                {% assign words = page.categories[1] | split: '-' %}
 		                {% assign title = words | join: ' ' %}
 		                {% assign title = title | camelcase %}
-		                <a href="{{site.baseurl}}/browse/?cat={{ page.categories[0] }}&subcat={{ page.categories[1] }}">{{ title }}</a>
+		                <a href="{{site.baseurl}}/browse/{{ page.categories[0] }}/{{ page.categories[1] }}">{{ title }}</a>
 		              {% when 3 %}
 		                {% assign words = page.categories[2] | split: '-' %}
 		                {% assign title = words | join: ' ' %}
 		                {% assign title = title | camelcase %}
-		                <a href="{{site.baseurl}}/browse/?cat={{ page.categories[0] }}&subcat={{ page.categories[1] }}&tcat={{ page.categories[2] }}">{{ title }}</a>
+		                <a href="{{site.baseurl}}/browse/{{ page.categories[0] }}/{{ page.categories[1] }}/{{ page.categories[2] }}">{{ title }}</a>
 		              {% else %}
 		            {% endcase %}
 		            </li>
@@ -176,7 +176,7 @@ layout: default
 	                {% assign words = tag | split: '-' %}
 	                {% assign title = words | join: ' ' %}
 	                {% assign title = title | camelcase %}
-					<li><a href="{{site.baseurl}}/tags/?tag={{tag}}">{{ title }}</a></li>
+					<li><a href="{{site.baseurl}}/tags/{{tag}}">{{ title }}</a></li>
 				{% endfor %}
 				</ul>
 			{% endif %}

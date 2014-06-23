@@ -18,17 +18,17 @@
                 {% assign words = page.heritage[0] | split: '-' %}
                 {% assign title = words | join: ' ' %}
                 {% assign title = title | camelcase %}
-                <a href="{{site.baseurl}}/{{ page.heritage[0] }}/">{{ title }}</a>
+                <a href="{{site.baseurl}}/browse/{{ page.heritage[0] }}/">{{ title }}</a>
               {% when 2 %}
                 {% assign words = page.heritage[1] | split: '-' %}
                 {% assign title = words | join: ' ' %}
                 {% assign title = title | camelcase %}
-                <a href="{{site.baseurl}}/{{ page.heritage[0] }}/{{ page.heritage[1] }}/">{{ title }}</a>
+                <a href="{{site.baseurl}}/browse/{{ page.heritage[0] }}/{{ page.heritage[1] }}/">{{ title }}</a>
               {% when 3 %}
                 {% assign words = page.heritage[2] | split: '-' %}
                 {% assign title = words | join: ' ' %}
                 {% assign title = title | camelcase %}
-                <a href="{{site.baseurl}}/{{ page.heritage[0]  }}/{{ page.heritage[1] }}/{{ page.heritage[2] }}/">{{ title }}</a>
+                <a href="{{site.baseurl}}/browse/{{ page.heritage[0]  }}/{{ page.heritage[1] }}/{{ page.heritage[2] }}/">{{ title }}</a>
               {% else %}
             {% endcase %}
             {% unless forloop.last %}
@@ -47,7 +47,7 @@
                   {% assign words = child | split: '-' %}
                   {% assign title = words | join: ' ' %}
                   {% assign title = title | camelcase %}
-                <a class="list-group-item" href="{{heritage_url}}/{{ child }}">{{ title }}</a>
+                <a class="list-group-item" href="/browse/{{heritage_url}}/{{ child }}">{{ title }}</a>
             {% endfor %}
             </div>
           </div>

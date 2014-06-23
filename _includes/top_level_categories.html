@@ -5,7 +5,7 @@
             {% assign words = category[0] | split: '-' %}
             {% assign title = words | join: ' ' %}
             {% assign title = title | camelcase %}
-        <a href="{{site.baseurl}}/browse/?cat={{category[0]}}" class="list-group-item">{{ title }}</a>
+        <a href="{{site.baseurl}}/browse/{{category[0]}}" class="list-group-item">{{ title }}</a>
       {% endif %}
     {% endfor %}
   </div>

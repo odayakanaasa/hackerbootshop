@@ -18,7 +18,7 @@ def build_category_front_matter (category, heritage='')
   end
 
   # Save Index\
-  file = heritage + '/index.html'
+  file = 'browse/' + heritage + '/index.html'
   puts file
   FileUtils.mkdir_p(File.dirname(file)) unless File.exists?(File.dirname(file))
   File.open(file, 'w+') do |file|
