@@ -4,7 +4,7 @@ desc 'Generate Tag Pages'
 # http://gist.github.com/262512
 # https://gist.github.com/pkazmierczak/1554185
 
-task :tags do
+task :tag_pages do
 
   puts "Generating Tag Pages..."
   require 'rubygems'

@@ -1,6 +1,6 @@
 desc 'Generate Category Pages'
 
-task :categories do
+task :category_pages do
 
   puts "Generating Category Pages..."
   require 'rubygems'
