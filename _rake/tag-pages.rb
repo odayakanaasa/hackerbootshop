@@ -40,7 +40,7 @@ task :tag_pages do
       if available_products[pid]
         html += '<div class="col-xs-6 col-sm-3 col-md-2">'
           html += '<div class="thumbnail" style="margin-bottom:30px;max-width:300px;min-height:265px;">'
-            html += '<a href="' + site.baseurl + post_data['url'] + '"><img data-original="' + post_data['lg_image'] + '" class="lazy img-responsive"></a>'
+            html += '<a href="' + site.baseurl + post_data['url'] + '"><img src="' + post_data['lg_image'] + '" /></a>'
             html += '<div class="caption" style="height:100px;overflow:hidden">'
               html += '<p>'
                 if post_data['sale_price']

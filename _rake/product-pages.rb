@@ -8,6 +8,8 @@ task :products do
   $product_map = Hash.new
 
   # XML
+  # http://datafeed.avantlink.com/download_feed.php?id=81603&auth=dfe502a536492bd4a2bb8ebc34e0db64
+  # http://datafeed.avantlink.com/download_feed.php?id=81603&auth=dfe502a536492bd4a2bb8ebc34e0db64&incr=only-modified&from=2014-10-29
   reader = Nokogiri::XML::Reader(File.open("_xml/Rei_81603_datafeed.xml"))
 
   # Products
@@ -21,16 +23,17 @@ task :products do
       sub_cat = fragment.xpath('.//SubCategory').text
       group = fragment.xpath('.//Product_Group').text
       # Limit Products
-      next unless brand == 'Rei' or 
-                  brand == 'Novara' or 
-                  brand == 'The North Face' or 
-                  brand == 'Patagonia' or 
-                  brand == 'Roxy' or 
-                  brand == 'Prana' or 
-                  group == 'Women\'s Swimsuits' or
-                  sub_cat == 'Women\'s Underwear'or
-                  sub_cat == 'Women\'s Skirts And Dresses'
+      # next unless brand == 'Rei' or 
+      #            brand == 'Novara' or 
+      #            brand == 'The North Face' or 
+      #            brand == 'Patagonia' or 
+      #            brand == 'Roxy' or 
+      #            brand == 'Prana' or 
+      #            group == 'Women\'s Swimsuits' or
+      #            sub_cat == 'Women\'s Underwear'or
+      #            sub_cat == 'Women\'s Skirts And Dresses'
       $products[pid] = Hash.new
+      $products[pid]['brand'] = brand
       fragment.children.each do |node|
         next if node.name == 'text'
         next if node.text == ''
@@ -88,12 +91,12 @@ task :products do
 
   # Update Product Map
   File.open("_data/productmap.yml", 'w+') do |file|
-    file.puts $product_map.to_yaml(line_width: -1)
+    file.puts $product_map.to_yaml({'line_width' => -1, 'canonical' => false})
   end
 
   # Jekyl Products Data
   File.open("_data/products.yml", 'w+') do |file|
-    file.puts $products.to_yaml(line_width: -1)
+    file.puts $products.to_yaml({'line_width' => -1, 'canonical' => false})
   end
 
   # JSON Products Data

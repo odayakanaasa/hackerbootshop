@@ -58,7 +58,7 @@ task :category_data => [:site_data] do
 
   # YAML Category Data
   File.open("_data/categories.yml", 'w+') do |file|
-    file.puts $categories.to_yaml(line_width: -1)
+    file.puts $categories.to_yaml({'line_width' => -1, 'canonical' => false})
   end
 
   # JSON Category Data

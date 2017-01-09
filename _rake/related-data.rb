@@ -88,7 +88,7 @@ task :related => [:site_data] do
 
   # YAML Relationships Data
   File.open("_data/relationships.yml", 'w+') do |file|
-    file.puts $relationships.to_yaml(line_width: -1)
+    file.puts $relationships.to_yaml({'line_width' => -1, 'canonical' => false})
   end
 
   # JSON Relationships Data

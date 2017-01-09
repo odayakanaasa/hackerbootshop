@@ -12,7 +12,7 @@ task :producturlmap_data => [:site_data] do
 
   # YAML Product URL Data
   File.open("_data/producturlmap.yml", 'w+') do |file|
-    file.puts $product_url_map.to_yaml(line_width: -1)
+    file.puts $product_url_map.to_yaml({'line_width' => -1, 'canonical' => false})
   end
 
   # JSON Product URL Data

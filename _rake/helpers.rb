@@ -45,16 +45,26 @@ def build_product_front_matter (product)
     post['description_list'] = build_description_list(product['long_description'])
   end
   post['tags'] = Array.new
+  if (post['brand'] != nil)
+    brand_tag = post['brand'].downcase.gsub('-','')
+    if good_tag(brand_tag) 
+      post['tags'].push(brand_tag)
+    end
+  end
   if (product['keywords'] != nil) 
     tags = product['keywords'].split(",")
     tags.each do |tag|
-      post['tags'].push(seo_string(tag))
+      if good_tag(tag)
+        post['tags'].push(seo_string(tag))
+      end
     end
   end
   product['product_name'].split(" ").each do |word|
     clean_word = seo_string(word)
     if (clean_word != '') 
-      post['tags'].push(clean_word)
+      if good_tag(clean_word)
+        post['tags'].push(clean_word)
+      end
     end
   end
   if (product['retail_price'] == product['sale_price'])
@@ -155,15 +165,19 @@ def normalize_category(category)
 end
 
 def good_tag(tag)
-  return false if (tag.to_f > 0 and tag.to_f < 100) 
-  return false if (tag == '')
-  return false if (tag == ' ')
-  return false if (tag == "\t")
-  return false if (tag == 'of')
-  return false if (tag == 'set')
-  return false if (tag == 'the')
-  return false if (tag == 'a')
-  return false if (tag == 'and')
-  return true
+  good_tag = true
+  good_tag = false if (tag.length < 3)
+  good_tag = false if (tag =~ /#/)
+  good_tag = false if (tag =~ /-/)
+  good_tag = false if (tag =~ /\d/)
+  good_tag = false if (tag == '')
+  good_tag = false if (tag == ' ')
+  good_tag = false if (tag == "\t")
+  good_tag = false if (tag == 'of')
+  good_tag = false if (tag == 'set')
+  good_tag = false if (tag == 'the')
+  good_tag = false if (tag == 'a')
+  good_tag = false if (tag == 'and')
+  return good_tag
 end
 

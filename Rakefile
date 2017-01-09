@@ -1,4 +1,3 @@
-require 'rake_performance'  
 require 'rubygems'
 require 'yaml'
 require 'pp'
